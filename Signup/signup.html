@@ -1,89 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JobMatch - Sign Up</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/122c77fce3.js"
       crossorigin="anonymous"
     ></script>
-
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <div class="logo">
-                <h1><span class="job">Job</span><span class="match">Match</span></h1>
-            </div>
-            <button id="menu-toggle">
-                <i class="fa-solid fa-bars"></i> <!-- Hamburger icon -->
-            </button>
-            
-            
-        
-            <nav id="nav-menu">
-                <a href="index.html" id="home-link">Home</a> <!-- Reloads homepage -->
-                <a href="jobs.html">Jobs</a> <!-- Change to the actual jobs page -->
-                <a href="about.html">About</a> <!-- Change to the actual about page -->
-                <a href="signup.html" class="signup-btn">sign up</a> <!-- Change to actual signup page -->
-                <a href="login.html" class="login-btn">Log In</a> <!-- Change to actual login page -->
-            </nav>
-            
-        </header>
-        
-        <main>
-            <div class="left-content">
-                <h2><span>Find</span> &nbsp;your next opportunity</h2>
-                <p>Login to connect with the right Job for you!</p>
-            </div>
-            <div class="right-content">
-                <form id="signupForm">
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="firstName">First name</label>
-                            <input type="text" id="firstName" placeholder="Enter your first name">
-                        </div>
-                        <div class="form-col">
-                            <label for="lastName">Last name</label>
-                            <input type="text" id="lastName" placeholder="Enter your Last name">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="input-icon">
-                            <i class="fa-solid fa-circle-user log_icon"></i>
-                            <input type="email" id="email" placeholder="Enter your Email">
+      <header>
+        <div class="logo">
+          <h1><span class="job">Job</span><span class="match">Match</span></h1>
+        </div>
+        <button id="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+          <!-- Hamburger icon -->
+        </button>
 
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-col">
-                            <label for="role">Choose your role</label>
-                            <select id="role">
-                                <option value="" disabled selected>Select</option>
-                                <option value="jobseeker">Job Seeker</option>
-                                <option value="employer">Employer</option>
-                                
-                            </select>
-                        </div>
-                        <div class="form-col">
-                            <label for="password">Password</label>
-                            <div class="input-icon">
-                                <i class="fa-solid fa-user-lock"></i>
-                                <input type="password" id="password" placeholder= " Enter your Password">
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="signup-btn-form">Sign Up</button>
-                  
-                </form>
+        <nav id="nav-menu">
+          <a href="index.html" id="home-link">Home</a>
+          <!-- Reloads homepage -->
+          <a href="jobs.html">Jobs</a>
+          <!-- Change to the actual jobs page -->
+          <a href="about.html">About</a>
+          <!-- Change to the actual about page -->
+          <a href="signup.html" class="signup-btn">sign up</a>
+          <!-- Change to actual signup page -->
+          <a href="login.html" class="login-btn">Log In</a>
+          <!-- Change to actual login page -->
+        </nav>
+      </header>
+
+      <main>
+        <div class="left-content">
+          <h2><span>Find</span> &nbsp;your next opportunity</h2>
+          <p>Login to connect with the right Job for you!</p>
+        </div>
+        <div class="right-content">
+          <form id="signupForm">
+            <div class="form-row">
+              <div class="form-col">
+                <label for="firstName">First name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  placeholder="Enter your first name"
+                />
+              </div>
+              <div class="form-col">
+                <label for="lastName">Last name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  placeholder="Enter your Last name"
+                />
+              </div>
             </div>
-        </main>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-icon">
+                <i class="fa-solid fa-circle-user log_icon"></i>
+                <input type="email" id="email" placeholder="Enter your Email" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-col">
+                <label for="role">Choose your role</label>
+                <select id="role">
+                  <option value="" disabled selected>Select</option>
+                  <option value="jobseeker">Job Seeker</option>
+                  <option value="employer">Employer</option>
+                </select>
+              </div>
+              <div class="form-col">
+                <label for="password">Password</label>
+                <div class="input-icon">
+                  <i class="fa-solid fa-user-lock"></i>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder=" Enter your Password"
+                  />
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="signup-btn-form">Sign Up</button>
+          </form>
+        </div>
+      </main>
     </div>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

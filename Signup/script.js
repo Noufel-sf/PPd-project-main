@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Add focus effects to inputs
+    // Add focus effects to inputs .
     const inputs = document.querySelectorAll('input, select');
 
     inputs.forEach(input => {

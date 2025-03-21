@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html {
     scroll-behavior: smooth;
 }
+
 /* General Styles */
 * {
     margin: 0;
@@ -37,7 +39,7 @@ body {
 }
 
 /* Header   add the max width and the margin to cetner the header **************
-*********************************************************************************/ 
+*********************************************************************************/
 header {
     display: flex;
     justify-content: space-evenly;
@@ -46,6 +48,7 @@ header {
     margin: auto;
     max-width: 80%;
 }
+
 .logo {
     display: flex;
     align-items: center;
@@ -90,26 +93,27 @@ nav a:hover {
 }
 
 .signup-btn {
-        display: inline-block;
-        width: auto;
-        background-color: var(--primary_color);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 7px;
-        cursor: pointer;
-        transition: background 0.3s;
-        text-align: center;
-        margin-top: 10px;
-    
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+
 }
 
 
 
 /* Input Styles */
-input:focus, select:focus {
+input:focus,
+select:focus {
     border-color: red;
     outline: none;
     box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
@@ -131,7 +135,8 @@ input:focus, select:focus {
     text-align: center;
     margin-top: 10px;
 }
-.login-btn{
+
+.login-btn {
     display: inline-block;
     width: auto;
     background-color: var(--primary_color);
@@ -145,16 +150,18 @@ input:focus, select:focus {
     transition: background 0.3s;
     text-align: center;
     margin-top: 10px;
-    
+
 }
-.login-btn:hover{
+
+.login-btn:hover {
     color: var(--primary_color);
     background-color: var(--white_color);
     border: 1px solid var(--primary_color);
 
-    
+
 
 }
+
 .signup-btn-form:hover {
     background-color: darkred;
 }
@@ -167,6 +174,7 @@ main {
     max-width: 80%;
     margin: auto;
 }
+
 .left-content {
     flex: 1;
     padding-right: 20px;
@@ -216,7 +224,8 @@ label {
     font-weight: bold;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--border_color);
@@ -230,22 +239,23 @@ input::placeholder {
 }
 
 /* you must change the name  */
-.signup-btn-form{
-        display: inline-block;
-        width: auto;
-        background-color: var(--primary_color);
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 7px;
-        cursor: pointer;
-        transition: background 0.3s;
-        text-align: center;
-        margin-top: 10px;
-    
+.signup-btn-form {
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+
 }
+
 .input-icon {
     position: relative;
 }
@@ -266,25 +276,29 @@ i {
     color: gray;
     font-size: 24px;
 }
+
 #menu-toggle {
-    display: none ;
+    display: none;
 }
 
 
-@media screen and (min-width: 1025px) { 
+@media screen and (min-width: 1025px) {
     #menu-toggle {
         position: absolute;
-        right: 20px;  /* Moves it to the right */
-        top: 20px;     /* Adjusts its vertical position */
+        right: 20px;
+        /* Moves it to the right */
+        top: 20px;
+        /* Adjusts its vertical position */
         font-size: 24px;
         background: none;
         border: none;
         cursor: pointer;
         display: none;
     }
-    
+
     header {
-        position: relative; /* Ensures positioning works correctly */
+        position: relative;
+        /* Ensures positioning works correctly */
     }
 }
 
@@ -300,13 +314,16 @@ i {
         gap: 40px;
     }
 
-    .left-content, .right-content {
+    .left-content,
+    .right-content {
         overflow-y: auto;
-        max-height: 80vh; /* Prevents form from going out of view */
+        max-height: 80vh;
+        /* Prevents form from going out of view */
     }
 
     .form-row {
-        flex-direction: column; /* Stack inputs vertically */
+        flex-direction: column;
+        /* Stack inputs vertically */
     }
 
 
@@ -343,7 +360,8 @@ i {
         cursor: pointer;
         border: none;
     }
-    #menu-toggle i{
+
+    #menu-toggle i {
         color: var(--black_color);
     }
 
@@ -367,7 +385,8 @@ i {
         flex-direction: column;
     }
 
-    .left-content, .right-content {
+    .left-content,
+    .right-content {
         padding: 0;
         margin-bottom: 20px;
     }
