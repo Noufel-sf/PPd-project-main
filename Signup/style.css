@@ -36,7 +36,8 @@ body {
     overflow: auto;
 }
 
-/* Header   add the max width and the margin to cetner the header */ 
+/* Header   add the max width and the margin to cetner the header **************
+*********************************************************************************/ 
 header {
     display: flex;
     justify-content: space-evenly;
@@ -158,7 +159,8 @@ input:focus, select:focus {
     background-color: darkred;
 }
 
-/* Main Layout  add the marg n and the max  width to ceter the main */
+/* Main Layout  add the marg n and the max  width to ceter the main ******
+***************************************************************************/
 main {
     padding: 30px;
     display: flex;
