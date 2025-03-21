@@ -10,17 +10,17 @@
 }
 /* lacal variables */
 :root{
-    --primary_color:#F20E12 ; 
+    --primary_color:#3558f3 ; 
     --white_color:#ffffff ;
     --black_color:#00000 ;  
     --input_plassholder:#D9D9D9;
 }
 
-  /* the wrapper of the page   */
-  /* .login_page_wrapper{
-    background: url(Assests/photo_2025-03-13_11-27-00.jpg) center/cover no-repeat;
+ 
+   .login_page_wrapper{
+    background: url(photo_2025-03-21_21-49-43.jpg) center/cover no-repeat;
     height: 100vh;
-  } */
+  } 
  /* the header of the page  */
 
  header{
