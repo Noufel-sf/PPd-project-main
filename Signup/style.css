@@ -1,0 +1,423 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary_color: #F20E12;
+    --white_color: #ffffff;
+    --black_color: #222222;
+    --input_placeholder: #D9D9D9;
+    --background_gray: #f5f5f5;
+    --border_color: #ddd;
+}
+
+body {
+    background-color: var(--background_gray);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: var(--white_color);
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: auto;
+}
+
+/* Header   add the max width and the margin to cetner the header */ 
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    max-width: 80%;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.job {
+    color: var(--primary_color);
+    font-weight: bold;
+}
+
+.match {
+    color: var(--black_color);
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin-left: auto;
+    width: 60%;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black_color);
+    font-weight: bolder;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--primary_color);
+}
+
+.signup-btn {
+        display: inline-block;
+        width: auto;
+        background-color: var(--primary_color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-align: center;
+        margin-top: 10px;
+    
+}
+
+
+
+/* Input Styles */
+input:focus, select:focus {
+    border-color: red;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+}
+
+.signup-btn {
+    display: inline-block;
+    width: auto;
+    background-color: white;
+    color: var(--primary_color);
+    border: 1px solid var(--primary_color);
+    padding: 9px 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+}
+.login-btn{
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+    
+}
+.login-btn:hover{
+    color: var(--primary_color);
+    background-color: var(--white_color);
+    border: 1px solid var(--primary_color);
+
+    
+
+}
+.signup-btn-form:hover {
+    background-color: darkred;
+}
+
+/* Main Layout  add the marg n and the max  width to ceter the main */
+main {
+    padding: 30px;
+    display: flex;
+    max-width: 80%;
+    margin: auto;
+}
+.left-content {
+    flex: 1;
+    padding-right: 20px;
+    margin-top: 100px;
+}
+
+.left-content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.left-content h2 span {
+    font-size: 32px;
+    color: var(--primary_color);
+    font-weight: bold;
+}
+
+.left-content p {
+    font-size: 22px;
+    line-height: 2;
+    font-weight: bold;
+}
+
+.right-content {
+    flex: 1.5;
+    padding-left: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-col {
+    flex: 1;
+}
+
+label {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+}
+
+input::placeholder {
+    color: #666;
+}
+
+/* you must change the name  */
+.signup-btn-form{
+        display: inline-block;
+        width: auto;
+        background-color: var(--primary_color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-align: center;
+        margin-top: 10px;
+    
+}
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--input_placeholder);
+}
+
+.input-icon input {
+    padding-left: 36px;
+}
+
+i {
+    color: gray;
+    font-size: 24px;
+}
+#menu-toggle {
+    display: none ;
+}
+
+
+@media screen and (min-width: 1025px) { 
+    #menu-toggle {
+        position: absolute;
+        right: 20px;  /* Moves it to the right */
+        top: 20px;     /* Adjusts its vertical position */
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+    
+    header {
+        position: relative; /* Ensures positioning works correctly */
+    }
+}
+
+
+
+/* 🔹 MEDIA QUERIES */
+
+/* 📲 Tablets (481px - 768px) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .left-content, .right-content {
+        overflow-y: auto;
+        max-height: 80vh; /* Prevents form from going out of view */
+    }
+
+    .form-row {
+        flex-direction: column; /* Stack inputs vertically */
+    }
+
+
+    /* Hide navbar initially */
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background-color: white;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show navbar when active */
+    #nav-menu.active {
+        display: flex;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px;
+        position: relative;
+    }
+
+    #menu-toggle {
+        display: block;
+        font-size: 14px;
+        cursor: pointer;
+        border: none;
+    }
+    #menu-toggle i{
+        color: var(--black_color);
+    }
+
+    nav a {
+        padding: 14px;
+        display: block;
+    }
+
+    .right-content {
+        width: 80%;
+    }
+
+    .signup-btn-form {
+        width: 100%;
+    }
+}
+
+/* 📱 Phones (≤ 480px) */
+@media screen and (max-width: 480px) {
+    main {
+        flex-direction: column;
+    }
+
+    .left-content, .right-content {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-col {
+        width: 100%;
+    }
+
+    .signup-btn-form {
+        width: 100%;
+    }
+
+    /* Hide navbar initially */
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Show navbar when active */
+    #nav-menu.active {
+        display: flex;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px;
+        position: relative;
+    }
+
+    #menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    nav a {
+        padding: 12px;
+        display: block;
+    }
+}

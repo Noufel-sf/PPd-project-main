@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+ /* the font of the page  */
+*{
+    margin :0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style:none;
+    text-decoration: none;
+}
+/* lacal variables */
+:root{
+    --primary_color:#F20E12 ; 
+    --white_color:#ffffff ;
+    --black_color:#00000 ;  
+    --input_plassholder:#D9D9D9;
+}
+
+  /* the wrapper of the page   */
+  /* .login_page_wrapper{
+    background: url(Assests/photo_2025-03-13_11-27-00.jpg) center/cover no-repeat;
+    height: 100vh;
+  } */
+ /* the header of the page  */
+
+ header{
+    padding: 22px;
+    max-width: 85%;
+    margin: 0 auto; 
+ }
+ nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo h1 span{
+    color: var(--primary_color);
+    text-transform: capitalize;
+    font-size: 35px;
+    margin-right: 8px;
+}
+nav .logo h1{
+    text-transform: capitalize;
+    font-size: 2rem;
+    cursor: pointer;
+}
+nav .logo a{
+    color: var(--black_color);
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+}
+ul a{
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: bold;
+    color: var(--black_color);
+}
+ul a li{
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 18px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+ul li:hover{
+    color: var(--primary_color);
+}
+
+.open_nav{
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.open_nav:hover{
+    color: var(--primary_color);
+}
+/* the end of the header */
+
+
+/* the main of the login page  */
+
+
+
+/* the content */
+.log_in_page{
+    max-width: 85%;
+    padding: 30px;
+    margin: 0 auto; 
+}
+.log_in_page .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.log_in_page .container .content{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.log_in_page .container .content span{
+    font-size: 35px;
+    color: var(--primary_color);
+    margin-right: 12px;
+}
+.log_in_page .container .content h6{
+    font-size: 22px;
+}
+
+.signup_button{
+    width: 130px;
+    cursor: pointer;
+    color: var(--white_color);
+    background-color: var(--primary_color);
+    border:none ; 
+    border-radius: 22px;
+    text-transform: capitalize;
+    padding: 10px;
+    transition: 0.3s;
+}
+.signup_button:hover{
+    background-color: #ff494c;
+}
+
+
+/* the content */
+
+
+/* the form log in  */
+
+.login_form{
+    width: 50%;
+}
+.login_form form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+}
+.login_form form .text_field{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 8px;
+    width: 62%;
+}
+
+
+.login_form form .text_field label{
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: bold;
+}
+.login_form form .text_field input{
+    outline: none;
+    padding: 12px 12px 12px 45px;
+    border-radius: 5px;
+    width: 100%;
+    position: relative;
+    border:none;
+    font-size: 18px;
+    background-color:var(--input_plassholder) ;
+}
+.input-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center; /* Ensures the icon is vertically centered */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+}
+.log_icon {
+    position: absolute;
+    left: 15px; 
+    top: 60%;
+    color: gray;
+    font-size: 17px;
+}
+.login_form form .reset_pass_link a{
+    color: var(--black_color);
+}
+.login_form form .reset_pass_link h5{
+    font-size: 13px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login_form form .reset_pass_link h5:hover{
+    color: var(--primary_color);
+}
+.login_form form button{
+    width: 120px;
+    color: var(--white_color);
+    background-color: var(--primary_color);
+    cursor: pointer;
+    padding: 8px;
+    border:none ;
+    border-radius: 22px;
+    width: 210px;
+    text-transform: capitalize;
+}
+.login_form form button:hover{
+    background-color: #fa3539;
+}
+
+.open_nav{
+    display: none;
+}
+
+.error{
+    color: var(--primary_color);
+    text-transform: capitalize;
+}
+/* the end of the log in inteface  */
+
+
+ /* making the page Responsive  */
+
+ /* small screens ipad ..... */
+
+@media (max-width :800px ){
+    .log_in_page .container {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 55px;
+    }
+    nav ul {
+        display: none;
+        position: absolute;
+        background-color: var(--primary_color);
+        top: 8%;
+        left: 0%;
+        padding: 20px;
+        width: 100%;
+        right: 50%;
+        flex-direction: column;
+        gap: 4.5rem;
+        z-index: 100;
+    }
+    .login_form {
+        width: 100%;
+    }
+    nav ul li{
+        color: var(--white_color);
+    }
+    nav ul li:hover{
+        color: var(--black_color);
+    }
+    .open_nav{
+        display: block;
+    }
+    ul a li {
+        font-size: 15px;
+    }
+    nav ul {
+        gap: 2.5rem;
+    }
+}
+@media (min-width: 801px) and (max-width: 1050px) {
+    ul a li {
+        font-size: 15px;
+    }
+    nav ul {
+        gap: 2.5rem;
+    }
+    .login_form form .text_field input {
+        font-size: 13px;      
+    }
+}
+
+
+ /* mobile screens */
+@media (max-width: 450px) {
+    .login_form form .text_field input {
+        font-size: 12px;
+    }
+}
+
+    
+@media (min-width: 801px) {
+    nav ul {
+        display: flex !important; /* Force display back */
+    }
+}
+
+
