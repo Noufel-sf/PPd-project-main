@@ -13,31 +13,51 @@ html {
 }
 
 :root {
-    --primary_color: #F20E12;
+    --primary_color: #4155E8;
     --white_color: #ffffff;
     --black_color: #222222;
     --input_placeholder: #D9D9D9;
-    --background_gray: #f5f5f5;
+    --background_gray: #C4C4C4;
     --border_color: #ddd;
 }
 
 body {
-    background-color: var(--background_gray);
+    margin: 0;
+    padding: 0;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fallback color */
 }
 
+/* Add this before your container style */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/b1.jpg'); /* Update with actual path */
+    background-size: 100% 100%; /* Force image to stretch to full viewport */
+    background-position: center bottom; /* Position at bottom */
+    background-repeat: no-repeat;
+    z-index: -1; /* Place behind content */
+}
+
+/* Make container transparent to show background */
 .container {
-    background-color: var(--white_color);
+    background-color: transparent; /* Make it transparent to see background */
     width: 100%;
     height: 100vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: auto;
+    padding-left: 0;
+    position: relative;
 }
-
 /* Header   add the max width and the margin to cetner the header **************
 *********************************************************************************/
 header {
@@ -61,8 +81,12 @@ header {
 }
 
 .job {
-    color: var(--primary_color);
+    background-color: var(--primary_color);
+    color: white; /* White text */
+    padding: 2px 5px; /* Padding to match design */
+    border-radius: 12px; /* Rounded corners */
     font-weight: bold;
+    margin-right: 8px;
 }
 
 .match {
@@ -114,9 +138,9 @@ nav a:hover {
 /* Input Styles */
 input:focus,
 select:focus {
-    border-color: red;
+    border-color:var(--primary_color) ;
     outline: none;
-    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    box-shadow: var(--primary_color);
 }
 
 .signup-btn {
@@ -163,7 +187,8 @@ select:focus {
 }
 
 .signup-btn-form:hover {
-    background-color: darkred;
+    background-color:blue;
+    
 }
 
 /* Main Layout  add the marg n and the max  width to ceter the main ******
@@ -173,29 +198,40 @@ main {
     display: flex;
     max-width: 80%;
     margin: auto;
+    position: relative; 
 }
 
 .left-content {
     flex: 1;
     padding-right: 20px;
-    margin-top: 100px;
+    margin-top: 370px;
+    margin-left: 0; /* Moves left */
+    margin-bottom: 10px; 
+    align-items: flex-end;
+    
 }
 
 .left-content h2 {
     font-size: 22px;
     margin-bottom: 10px;
+    color:white;
+   
+    margin-left: 0;
 }
 
 .left-content h2 span {
     font-size: 32px;
     color: var(--primary_color);
     font-weight: bold;
+    
 }
 
 .left-content p {
     font-size: 22px;
     line-height: 2;
     font-weight: bold;
+    color:white;
+   
 }
 
 .right-content {
@@ -253,9 +289,10 @@ input::placeholder {
     transition: background 0.3s;
     text-align: center;
     margin-top: 10px;
-
+    position: relative; /* Ensure it's moveable */
+    left: 250px;
 }
-
+/* Only modify the positioning of icons without changing input dimensions */
 .input-icon {
     position: relative;
 }
@@ -265,18 +302,26 @@ input::placeholder {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--input_placeholder);
+    color: #777;
+    z-index: 1;
+    pointer-events: none;
 }
 
+/* Add left padding to inputs without changing other dimensions */
 .input-icon input {
     padding-left: 36px;
 }
 
-i {
-    color: gray;
-    font-size: 24px;
+/* Add left padding to selects without changing other dimensions */
+.input-icon select {
+    padding-left: 36px;
 }
 
+/* Generic icon styling */
+i {
+    color: #777; /* Gray color for icons */
+    font-size: 18px; /* Consistent size with input icons */
+}
 #menu-toggle {
     display: none;
 }

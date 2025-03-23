@@ -9,6 +9,8 @@
       src="https://kit.fontawesome.com/122c77fce3.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   </head>
   <body>
     <div class="container">
@@ -37,34 +39,38 @@
 
       <main>
         <div class="left-content">
-          <h2><span>Find</span> &nbsp;your next opportunity</h2>
-          <p>Login to connect with the right Job for you!</p>
+          <h2><span>Join</span> &nbsp;now and </h2>
+          <p>connect with the right Job for you!</p>
         </div>
         <div class="right-content">
           <form id="signupForm">
             <div class="form-row">
+              
               <div class="form-col">
                 <label for="firstName">First name</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  placeholder="Enter your first name"
-                />
+                <div class="input-wrapper">
+                  <i class="fa fa-user"></i>
+                  <input type="text" id="firstName" placeholder="Enter your first name" />
+                </div>
               </div>
+
               <div class="form-col">
                 <label for="lastName">Last name</label>
+                <div class="input-wrapper"></div>
+                <i class="fa fa-user"></i>
                 <input
                   type="text"
                   id="lastName"
-                  placeholder="Enter your Last name"
+                  placeholder="   Enter your Last name"
                 />
               </div>
             </div>
 
             <div class="form-group">
               <label for="email">Email</label>
+             
               <div class="input-icon">
-                <i class="fa-solid fa-circle-user log_icon"></i>
+                <i class="fa fa-envelope"></i>
                 <input type="email" id="email" placeholder="Enter your Email" />
               </div>
             </div>
@@ -81,7 +87,7 @@
               <div class="form-col">
                 <label for="password">Password</label>
                 <div class="input-icon">
-                  <i class="fa-solid fa-user-lock"></i>
+                  <i class="fa fa-lock"></i>
                   <input
                     type="password"
                     id="password"
@@ -97,4 +103,4 @@
     </div>
     <script src="script.js"></script>
   </body>
-</html>
+</html> 
