@@ -11,6 +11,7 @@
 /* lacal variables */
 :root{
     --primary_color:#3558f3 ; 
+    --secondary_color: ;
     --white_color:#ffffff ;
     --black_color:#00000 ;  
     --input_plassholder:#D9D9D9;
@@ -18,7 +19,7 @@
 
  
    .login_page_wrapper{
-    background: url(photo_2025-03-21_21-49-43.jpg) center/cover no-repeat;
+    background: url(iness.jpg) center/cover no-repeat;
     height: 100vh;
   } 
  /* the header of the page  */
@@ -34,11 +35,15 @@
     justify-content: space-between;
 }
 
-.logo h1 span{
+.logo h1 span {
     color: var(--primary_color);
     text-transform: capitalize;
-    font-size: 35px;
+    font-size: 30px;
+    color: var(--white_color);
     margin-right: 8px;
+    border-radius: 12px;
+    padding: 2px 7px 2px 6px;
+    background-color: var(--primary_color);
 }
 nav .logo h1{
     text-transform: capitalize;
@@ -100,20 +105,40 @@ ul li:hover{
     justify-content: space-between;
 }
 
-.log_in_page .container .content{
+
+
+/* iness idea  */
+
+.content {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
 }
-
-.log_in_page .container .content span{
+.content .text{
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.content h2{
+    color: var(--white_color);
+    font-size: 3.7rem;
+    text-transform: capitalize;
+}
+.content span{
     font-size: 3.35rem;
     color: var(--primary_color);
     margin-right: 1.10rem;
 }
-.log_in_page .container .content h6{
+.content h6 {
+    color: var(--white_color);
+    max-width: 100%;
     font-size: 2.22rem;
 }
+
+
 
 .signup_button{
     width: 130px;
@@ -139,13 +164,21 @@ ul li:hover{
 .login_form{
     width: 50%;
 }
-.login_form form{
+
+
+/* iness idea  */
+
+.login_form form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: absolute;
     gap: 15px;
     padding: 10px;
+    width: 40%;
+    right: 10%;
 }
+
 .login_form form .text_field{
     display: flex;
     align-items: start;
@@ -174,7 +207,7 @@ ul li:hover{
     position: relative;
     width: 100%;
     display: flex;
-    align-items: center; /* Ensures the icon is vertically centered */
+    align-items: center; 
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -235,11 +268,24 @@ ul li:hover{
         flex-direction: column-reverse;
         gap: 55px;
     }
+    .signup_button {
+        width: 130px;
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--black_color);
+        background-color: var(
+        --white_color);
+        border: none;
+        border-radius: 22px;
+        text-transform: capitalize;
+        padding: 10px;
+        transition: 0.3s;
+    }
     nav ul {
         display: none;
         position: absolute;
         background-color: var(--primary_color);
-        top: 8%;
+        top: 12%;
         left: 0%;
         padding: 20px;
         width: 100%;
@@ -265,7 +311,33 @@ ul li:hover{
     }
     nav ul {
         gap: 2.5rem;
+    }    
+    .login_form form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        gap: 15px;
+        padding: 10px;
+        width: 95%;
+        right: 4%;
+    } 
+    .content {
+        position: absolute;
+        left: 5%;
+        bottom: 10%;
     }
+    .content h6 {
+        color: var(--white_color);
+        font-size: 1.5rem;
+    }
+    .content .text {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+
+
 }
 @media (min-width: 801px) and (max-width: 1150px) {
     ul a li {
@@ -281,16 +353,35 @@ ul li:hover{
 
 
  /* mobile screens */
-@media (max-width: 450px) {
+@media (max-width: 470px) {
     .login_form form .text_field input {
         font-size: 12px;
+    }
+
+    
+    .content h6 {
+        color: var(--white_color);
+        letter-spacing: 1px;
+        font-size: 1.24rem;
+    }
+    .content h2 {
+        color: var(--white_color);
+        font-size: 2.7rem;
+        text-transform: capitalize;
+    }
+    .content {
+        bottom: 10%;
+        left: 5%;
+    } 
+    .content span {
+        font-size: 2.35rem;
     }
 }
 
     
 @media (min-width: 801px) {
     nav ul {
-        display: flex !important; /* Force display back */
+        display: flex !important; 
     }
 }
 
