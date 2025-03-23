@@ -17,7 +17,7 @@ html {
     --white_color: #ffffff;
     --black_color: #222222;
     --input_placeholder: #D9D9D9;
-    --background_gray: #f5f5f5;
+    --background_gray: #C4C4C4;
     --border_color: #ddd;
 }
 
@@ -81,8 +81,12 @@ header {
 }
 
 .job {
-    color: var(--primary_color);
+    background-color: var(--primary_color);
+    color: white; /* White text */
+    padding: 2px 5px; /* Padding to match design */
+    border-radius: 12px; /* Rounded corners */
     font-weight: bold;
+    margin-right: 8px;
 }
 
 .match {
@@ -288,7 +292,7 @@ input::placeholder {
     position: relative; /* Ensure it's moveable */
     left: 250px;
 }
-
+/* Only modify the positioning of icons without changing input dimensions */
 .input-icon {
     position: relative;
 }
@@ -298,18 +302,26 @@ input::placeholder {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--input_placeholder);
+    color: #777;
+    z-index: 1;
+    pointer-events: none;
 }
 
+/* Add left padding to inputs without changing other dimensions */
 .input-icon input {
     padding-left: 36px;
 }
 
-i {
-    color: gray;
-    font-size: 24px;
+/* Add left padding to selects without changing other dimensions */
+.input-icon select {
+    padding-left: 36px;
 }
 
+/* Generic icon styling */
+i {
+    color: #777; /* Gray color for icons */
+    font-size: 18px; /* Consistent size with input icons */
+}
 #menu-toggle {
     display: none;
 }
