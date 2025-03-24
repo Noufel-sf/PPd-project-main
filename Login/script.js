@@ -107,7 +107,7 @@ const inputs = document.querySelectorAll('input, select');
         input.addEventListener('focus', function () {
             this.style.borderColor = 'red';
             this.style.outline = 'none';
-            this.style.boxShadow = '0 0 0 2px rgba(255, 0, 0, 0.2)';
+            this.style.boxShadow = '0 0 0 2px #3558f3 ';
         });
 
         input.addEventListener('blur', function () {

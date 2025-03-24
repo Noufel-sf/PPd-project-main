@@ -11,7 +11,7 @@
 /* lacal variables */
 :root{
     --primary_color:#3558f3 ; 
-    --secondary_color: ;
+    --secondary_color: #3f5fc9;
     --white_color:#ffffff ;
     --black_color:#00000 ;  
     --input_plassholder:#D9D9D9;
@@ -152,7 +152,7 @@ ul li:hover{
     transition: 0.3s;
 }
 .signup_button:hover{
-    background-color: #ff494c;
+    background-color:var(--secondary_color);
 }
 
 
@@ -244,7 +244,18 @@ ul li:hover{
     text-transform: capitalize;
 }
 .login_form form button:hover{
-    background-color: #fa3539;
+    background-color:var(--secondary_color);
+}
+
+.login_form .create_new_acount a:hover{
+    color: var(--primary_color);
+    transition: 0.4s;
+}
+
+
+.login_form .create_new_acount a:hover{
+    color: var(--secondary_color);
+
 }
 
 .open_nav{
