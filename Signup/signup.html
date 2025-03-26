@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
     <title>JobMatch - Sign Up</title>
     <link rel="stylesheet" href="style.css" />
     <script
@@ -26,7 +27,7 @@
         <nav id="nav-menu">
           <a href="index.html" id="home-link">Home</a>
           <!-- Reloads homepage -->
-          <a href="jobs.html">Jobs</a>
+          <a href="contactus.html">Contact Us</a>
           <!-- Change to the actual jobs page -->
           <a href="about.html">About</a>
           <!-- Change to the actual about page -->
@@ -39,66 +40,81 @@
 
       <main>
         <div class="left-content">
-          <h2><span>Join</span> &nbsp;now and </h2>
-          <p>connect with the right Job for you!</p>
+          <h2>Join &nbsp;For <span>Free</span>!</h2>
+          <p class="tagline">Your <span>Future</span> Is Just A Click Away...</p>
+          <p class="description">Get started with the easiest<br> and most secure website<br>to find your dream job.</p>
+      </div>
+      
+
+      <div class="ipad-text">
+        Join now and connect<br> with the right job for you.
+      </div>
+      
+      
+      
+        <div class="right-content">
+            <form id="signupForm">
+                <!-- Your existing form content here -->
+            </form>
         </div>
+    
+    
+
+
+
         <div class="right-content">
           <form id="signupForm">
             <div class="form-row">
-              
-              <div class="form-col">
-                <label for="firstName">First name</label>
-                <div class="input-wrapper">
-                  <i class="fa fa-user"></i>
-                  <input type="text" id="firstName" placeholder="Enter your first name" />
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="text" id="firstName" placeholder="First name">
+                        <i class="fa fa-user"></i>
+                    </div>
                 </div>
-              </div>
-
-              <div class="form-col">
-                <label for="lastName">Last name</label>
-                <div class="input-wrapper"></div>
-                <i class="fa fa-user"></i>
-                <input
-                  type="text"
-                  id="lastName"
-                  placeholder="   Enter your Last name"
-                />
-              </div>
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="text" id="lastName" placeholder="Last Name">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-             
-              <div class="input-icon">
-                <i class="fa fa-envelope"></i>
-                <input type="email" id="email" placeholder="Enter your Email" />
-              </div>
-            </div>
-
+        
             <div class="form-row">
-              <div class="form-col">
-                <label for="role">Choose your role</label>
-                <select id="role">
-                  <option value="" disabled selected>Select</option>
-                  <option value="jobseeker">Job Seeker</option>
-                  <option value="employer">Employer</option>
-                </select>
-              </div>
-              <div class="form-col">
-                <label for="password">Password</label>
-                <div class="input-icon">
-                  <i class="fa fa-lock"></i>
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder=" Enter your Password"
-                  />
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder="Email">
+                        <i class="fa fa-envelope"></i>
+                    </div>
                 </div>
-              </div>
             </div>
-            <button type="submit" class="signup-btn-form">Sign Up</button>
-          </form>
-        </div>
+        
+            <div class="form-row">
+                <div class="form-col">
+                    <select id="role">
+                        <option value="" disabled selected>Select</option>
+                        <option value="jobseeker">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder="Password">
+                        <i class="fa fa-eye-slash" id="togglePassword"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- 🔹 Ensure Proper Spacing for Button -->
+            <div class="form-row button-row">
+                <button type="submit" class="signup-btn-form">Sign Up</button>
+                <p class="login-link">Already a member? <a href="login.html">Login</a></p>
+
+            </div>
+        
+        </form>
+        
+       
+        
       </main>
     </div>
     <script src="script.js"></script>
