@@ -100,18 +100,18 @@ open_nav.addEventListener("click" ,()=> {
     
 })
 
-// adding the focus efffect 
-const inputs = document.querySelectorAll('input, select');
 
-    inputs.forEach(input => {
-        input.addEventListener('focus', function () {
-            this.style.borderColor = 'red';
-            this.style.outline = 'none';
-            this.style.boxShadow = '0 0 0 2px #3558f3 ';
-        });
+// the logic to show the password 
+let showPassIcon = document.getElementById("showpass");
 
-        input.addEventListener('blur', function () {
-            this.style.borderColor = '#ddd';
-            this.style.boxShadow = 'none';
-        });
-    });
+showPassIcon.addEventListener("click", () => {
+    if (password.type === "password") {
+        password.type = "text"; // Show password
+        showPassIcon.classList.remove("fa-eye");
+        showPassIcon.classList.add("fa-eye-slash");
+    } else {
+        password.type = "password"; // Hide password
+        showPassIcon.classList.remove("fa-eye-slash");
+        showPassIcon.classList.add("fa-eye");
+    }
+});

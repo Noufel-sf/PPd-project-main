@@ -24,9 +24,9 @@
                 <a href="index.html"><li>home</li></a>
                 <a href="jobs.html"><li>jobs</li></a>
                 <a href="aboutus.html"><li>about us</li></a>
-                <a href="contactus.html"><li>contact us</li></a>
                 <a href="login.html"
-                ><button class="signup_button">sign in</button></a>
+                ><button class="signup_button">sign up</button></a>
+                <a href="signup.html"><button class="signup_button">log in</button></a>
             </ul>
             <div class="open_nav">
                 <i class="fa-solid fa-bars" id="open_nav"></i>
@@ -35,10 +35,9 @@
         </header>
         <main>
             <div class="log_in_page">
-            <!-- <div class="container"> -->
                 <div class="content">
                 <div class="text">
-                    <h2>sign in</h2>
+                    <!-- <h2>sign in</h2> -->
                     <h6>
                     <span>connect</span>with opportunity<br />
                     that match your skills and ambitions
@@ -46,17 +45,17 @@
                 </div>
                 </div>
                 <div class="login_form">
-                <form action="" id="form">
+                <form action="" id="form" method="post">
                     <div class="text_field">
                     <div class="input-container">
                         <label for="" class="input_text">email</label>
                         <input
                         type="text"
-                        placeholder="Enter your Email"
+                        placeholder=""
                         required
                         id="email"
                         />
-                        <i class="fa-solid fa-circle-user log_icon"></i>
+                        <i class="fa-regular fa-envelope log_icon"></i>
                     </div>
                     </div>
                     <span id="email_error" class="error"></span>
@@ -66,11 +65,11 @@
                         <label for="" class="input_text">password</label>
                         <input
                         type="password"
-                        placeholder="Enter your password"
+                        placeholder=""
                         required
                         id="password"
                         />
-                        <i class="fa-solid fa-lock log_icon"></i>
+                        <i class="fa-solid fa-eye log_icon" id="showpass"></i>
                     </div>
                     </div>
                     <span id="password_error" class="error"></span>
@@ -89,7 +88,6 @@
                 </form>
                 </div>
             </div>
-            <!-- </div> -->
         </main>
         </div>
     <script src="script.js"></script>

@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 html {
     scroll-behavior: smooth;
 }
-
 /* General Styles */
 * {
     margin: 0;
@@ -13,60 +11,37 @@ html {
 }
 
 :root {
-    --primary_color: #4155E8;
+    --primary_color: #F20E12;
     --white_color: #ffffff;
     --black_color: #222222;
     --input_placeholder: #D9D9D9;
-    --background_gray: #C4C4C4;
+    --background_gray: #f5f5f5;
     --border_color: #ddd;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    position: relative;
+    background-color: var(--background_gray);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #f5f5f5; /* Fallback color */
+    height: 100vh;
 }
 
-/* Add this before your container style */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/b1.jpg'); /* Update with actual path */
-    background-size: 100% 100%; /* Force image to stretch to full viewport */
-    background-position: center bottom; /* Position at bottom */
-    background-repeat: no-repeat;
-    z-index: -1; /* Place behind content */
-}
-
-/* Make container transparent to show background */
 .container {
-    background-color: transparent; /* Make it transparent to see background */
+    background-color: var(--white_color);
     width: 100%;
     height: 100vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     overflow: auto;
-    padding-left: 0;
-    position: relative;
 }
-/* Header   add the max width and the margin to cetner the header **************
-*********************************************************************************/
+
+/* Header */
 header {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin: auto;
-    max-width: 80%;
 }
 
 .logo {
@@ -81,12 +56,8 @@ header {
 }
 
 .job {
-    background-color: var(--primary_color);
-    color: white; /* White text */
-    padding: 2px 5px; /* Padding to match design */
-    border-radius: 12px; /* Rounded corners */
+    color: var(--primary_color);
     font-weight: bold;
-    margin-right: 8px;
 }
 
 .match {
@@ -117,30 +88,29 @@ nav a:hover {
 }
 
 .signup-btn {
-    display: inline-block;
-    width: auto;
-    background-color: var(--primary_color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-    margin-top: 10px;
-
+        display: inline-block;
+        width: auto;
+        background-color: var(--primary_color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-align: center;
+        margin-top: 10px;
+    
 }
 
 
 
 /* Input Styles */
-input:focus,
-select:focus {
-    border-color:var(--primary_color) ;
+input:focus, select:focus {
+    border-color: red;
     outline: none;
-    box-shadow: var(--primary_color);
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
 }
 
 .signup-btn {
@@ -159,8 +129,7 @@ select:focus {
     text-align: center;
     margin-top: 10px;
 }
-
-.login-btn {
+.login-btn{
     display: inline-block;
     width: auto;
     background-color: var(--primary_color);
@@ -174,64 +143,47 @@ select:focus {
     transition: background 0.3s;
     text-align: center;
     margin-top: 10px;
-
+    
 }
-
-.login-btn:hover {
+.login-btn:hover{
     color: var(--primary_color);
     background-color: var(--white_color);
     border: 1px solid var(--primary_color);
 
-
-
-}
-
-.signup-btn-form:hover {
-    background-color:blue;
     
+
+}
+.signup-btn-form:hover {
+    background-color: darkred;
 }
 
-/* Main Layout  add the marg n and the max  width to ceter the main ******
-***************************************************************************/
+/* Main Layout */
 main {
     padding: 30px;
     display: flex;
-    max-width: 80%;
-    margin: auto;
-    position: relative; 
 }
 
 .left-content {
     flex: 1;
     padding-right: 20px;
-    margin-top: 370px;
-    margin-left: 0; /* Moves left */
-    margin-bottom: 10px; 
-    align-items: flex-end;
-    
+    margin-top: 100px;
 }
 
 .left-content h2 {
     font-size: 22px;
     margin-bottom: 10px;
-    color:white;
-   
-    margin-left: 0;
 }
 
 .left-content h2 span {
     font-size: 32px;
     color: var(--primary_color);
     font-weight: bold;
-    
 }
 
 .left-content p {
     font-size: 22px;
     line-height: 2;
     font-weight: bold;
-    color:white;
-   
 }
 
 .right-content {
@@ -260,8 +212,7 @@ label {
     font-weight: bold;
 }
 
-input,
-select {
+input, select {
     width: 100%;
     padding: 12px;
     border: 1px solid var(--border_color);
@@ -275,24 +226,22 @@ input::placeholder {
 }
 
 /* you must change the name  */
-.signup-btn-form {
-    display: inline-block;
-    width: auto;
-    background-color: var(--primary_color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-    margin-top: 10px;
-    position: relative; /* Ensure it's moveable */
-    left: 250px;
+.signup-btn-form{
+        display: inline-block;
+        width: auto;
+        background-color: var(--primary_color);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 7px;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-align: center;
+        margin-top: 10px;
+    
 }
-/* Only modify the positioning of icons without changing input dimensions */
 .input-icon {
     position: relative;
 }
@@ -302,48 +251,36 @@ input::placeholder {
     left: 12px;
     top: 50%;
     transform: translateY(-50%);
-    color: #777;
-    z-index: 1;
-    pointer-events: none;
+    color: var(--input_placeholder);
 }
 
-/* Add left padding to inputs without changing other dimensions */
 .input-icon input {
     padding-left: 36px;
 }
 
-/* Add left padding to selects without changing other dimensions */
-.input-icon select {
-    padding-left: 36px;
-}
-
-/* Generic icon styling */
 i {
-    color: #777; /* Gray color for icons */
-    font-size: 18px; /* Consistent size with input icons */
+    color: gray;
+    font-size: 24px;
 }
 #menu-toggle {
-    display: none;
+    display: none ;
 }
 
 
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1025px) { 
     #menu-toggle {
         position: absolute;
-        right: 20px;
-        /* Moves it to the right */
-        top: 20px;
-        /* Adjusts its vertical position */
+        right: 20px;  /* Moves it to the right */
+        top: 20px;     /* Adjusts its vertical position */
         font-size: 24px;
         background: none;
         border: none;
         cursor: pointer;
         display: none;
     }
-
+    
     header {
-        position: relative;
-        /* Ensures positioning works correctly */
+        position: relative; /* Ensures positioning works correctly */
     }
 }
 
@@ -359,16 +296,13 @@ i {
         gap: 40px;
     }
 
-    .left-content,
-    .right-content {
+    .left-content, .right-content {
         overflow-y: auto;
-        max-height: 80vh;
-        /* Prevents form from going out of view */
+        max-height: 80vh; /* Prevents form from going out of view */
     }
 
     .form-row {
-        flex-direction: column;
-        /* Stack inputs vertically */
+        flex-direction: column; /* Stack inputs vertically */
     }
 
 
@@ -405,8 +339,7 @@ i {
         cursor: pointer;
         border: none;
     }
-
-    #menu-toggle i {
+    #menu-toggle i{
         color: var(--black_color);
     }
 
@@ -430,8 +363,7 @@ i {
         flex-direction: column;
     }
 
-    .left-content,
-    .right-content {
+    .left-content, .right-content {
         padding: 0;
         margin-bottom: 20px;
     }
