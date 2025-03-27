@@ -30,9 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const email = document.getElementById('email').value.trim();
             const role = document.getElementById('role').value;
             const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confirmPassword').value.trim(); // Added confirm password field
 
             // Basic form validation
-            if (!firstName || !lastName || !email || !role || !password) {
+            if (!firstName || !lastName || !email || !role || !password || !confirmPassword) {
                 alert('Please fill in all fields');
                 return;
             }
@@ -50,6 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Confirm password validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
             // Success message
             alert('Account created successfully!');
             form.reset(); // Clear form fields
@@ -59,15 +66,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Password visibility toggle functionality
     const togglePassword = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
 
     if (togglePassword) {
         togglePassword.addEventListener("click", function () {
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
+                confirmPasswordInput.type = "text"; // Also show confirm password
                 this.classList.remove("fa-eye-slash");
                 this.classList.add("fa-eye");
             } else {
                 passwordInput.type = "password";
+                confirmPasswordInput.type = "password"; // Hide confirm password again
                 this.classList.remove("fa-eye");
                 this.classList.add("fa-eye-slash");
             }
