@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <title>JobMatch - Sign Up</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/122c77fce3.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <h1><span class="job">Job</span><span class="match">Match</span></h1>
+        </div>
+        <button id="menu-toggle">
+          <i class="fa-solid fa-bars"></i>
+          <!-- Hamburger icon -->
+        </button>
+
+        <nav id="nav-menu">
+          <a href="index.html" id="home-link">Home</a>
+          <!-- Reloads homepage -->
+          <a href="contactus.html">Contact Us</a>
+          <!-- Change to the actual jobs page -->
+          <a href="about.html">About</a>
+          <!-- Change to the actual about page -->
+          <a href="signup.html" class="signup-btn">sign up</a>
+          <!-- Change to actual signup page -->
+          <a href="login.html" class="login-btn">Log In</a>
+          <!-- Change to actual login page -->
+        </nav>
+      </header>
+
+      <main>
+        <div class="left-content">
+          <h2>Join &nbsp;For <span>Free</span>!</h2>
+          <p class="tagline">Your <span>Future</span> Is Just A Click Away...</p>
+          <p class="description">Get started with the easiest<br> and most secure website<br>to find your dream job.</p>
+      </div>
+      
+
+      <div class="ipad-text">
+        Join now and connect<br> with the right job for you.
+      </div>
+      
+      
+      
+        <div class="right-content">
+            <form id="signupForm">
+                <!-- Your existing form content here -->
+            </form>
+        </div>
+    
+    
+
+
+
+        <div class="right-content">
+          <form id="signupForm">
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="text" id="firstName" placeholder="First name">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="text" id="lastName" placeholder="Last Name">
+                        <i class="fa fa-user"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="email" id="email" placeholder="Email">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-row">
+                <div class="form-col">
+                    <select id="role">
+                        <option value="" disabled selected>Select</option>
+                        <option value="jobseeker">Job Seeker</option>
+                        <option value="employer">Employer</option>
+                    </select>
+                </div>
+                <div class="form-col">
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder="Password">
+                        <i class="fa fa-eye-slash" id="togglePassword"></i>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- 🔹 Ensure Proper Spacing for Button -->
+            <div class="form-row button-row">
+                <button type="submit" class="signup-btn-form">Sign Up</button>
+                <p class="login-link">Already a member? <a href="login.html">Login</a></p>
+
+            </div>
+        
+        </form>
+        
+       
+        
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html> 

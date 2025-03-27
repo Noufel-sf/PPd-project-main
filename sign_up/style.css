@@ -1,0 +1,915 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary_color: #4155E8;
+    --white_color: #ffffff;
+    --black_color: #222222;
+    --input_placeholder: #D9D9D9;
+    --background_gray: #C4C4C4;
+    --border_color: #ddd;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fallback color */
+}
+
+/* Add this before your container style */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/b1.jpg'); /* Update with actual path */
+    background-size: 100% 100%; /* Force image to stretch to full viewport */
+    background-position: center bottom; /* Position at bottom */
+    background-repeat: no-repeat;
+    z-index: -1; /* Place behind content */
+}
+
+/* Make container transparent to show background */
+.container {
+    background-color: transparent; /* Make it transparent to see background */
+    width: 120%; /* Increase width beyond the screen */
+    max-width: none;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: auto;
+    padding-left: 0;
+    position: relative;
+}
+/* Header   add the max width and the margin to cetner the header **************
+*********************************************************************************/
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    max-width: 80%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.job {
+    background-color: var(--primary_color);
+    color: white; /* White text */
+    padding: 2px 5px; /* Padding to match design */
+    border-radius: 12px; /* Rounded corners */
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.match {
+    color: var(--black_color);
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin-left: auto;
+    width: 60%;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black_color);
+    font-weight: bolder;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--primary_color);
+}
+
+.signup-btn {
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+
+
+/* Input Styles */
+input:focus,
+select:focus {
+    border-color:var(--primary_color) ;
+    outline: none;
+    box-shadow: var(--primary_color);
+}
+
+.signup-btn {
+    display: inline-block;
+    width: auto;
+    background-color: white;
+    color: var(--primary_color);
+    border: 1px solid var(--primary_color);
+    padding: 9px 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-btn {
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.login-btn:hover {
+    color: var(--primary_color);
+    background-color: var(--white_color);
+    border: 1px solid var(--primary_color);
+
+
+
+}
+
+.signup-btn-form:hover {
+    background-color:blue;
+    
+}
+
+/* Main Layout  add the marg n and the max  width to ceter the main ******
+***************************************************************************/
+main {
+    display:flex;
+    align-items: stretch;
+    height: 100vh;
+    padding: 30px;
+  
+    max-width: 80%;
+    margin: auto;
+    position: relative; 
+}
+.left-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 5%; 
+    padding-left:0;
+    padding-right: 20%;
+    text-align: left;
+}
+
+.left-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    line-height: 2;
+    font-weight: inherit;
+}
+
+.left-content h2 span, 
+.tagline span, 
+.description span {
+    font-size: 30px;
+    color: var(--primary_color);
+    font-weight: bold;
+}
+
+
+.ipad-text {
+    display: none;
+  }
+  
+
+/* Styling for the first paragraph (Tagline) */
+.tagline {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Styling for the second paragraph (Description) */
+.description {
+    font-size: 24px;
+    font-weight: inherit;
+    line-height: 2.5;
+    margin-top: 15px;
+    color: white;
+}
+
+
+.right-content {
+    flex: 1.5;
+    padding-left: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.password-group {
+    margin-bottom: 0; /* Remove bottom margin from password group */
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    padding-top: 10px;
+}
+.form-col {
+    width: 100%;
+    display: flex;
+    align-items: center; /* Ensures everything inside stays aligned */
+    position: relative; /* Keeps the icon inside */
+    margin-top: 20px; /* Move it down */
+    margin-right: 20px;
+}
+.form-col:nth-child(1) { /* Moves the select box down */
+    margin-top: 10px;
+}
+
+.form-col:nth-child(2) { /* Moves the password field down */
+    margin-top: 10px;
+}
+
+
+label {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+
+/* Adjusts spacing for "Choose your role" */
+label[for="role"] {
+    font-size: 22px;  /* Adjust font size */
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 10px; /* Add space below */
+    display: block; /* Ensures spacing applies correctly */
+}
+
+#role {
+    width: 220px;
+    padding: 16px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+    margin-bottom: 20px; /* Add space below the dropdown */
+}
+
+
+input, select {
+    width: 280px;
+    height:55px;
+    padding: 18px; /* Same padding */
+    border: 1px solid var(--border_color);
+    border-radius: 5px; /* Consistent rounded corners */
+    font-size: 18px;
+    background-color: var(--input_placeholder);
+    display: block; /* Ensures block-level display */
+    box-sizing: border-box;
+}
+
+input[type="password"] {
+    width: 280px; 
+    height:55px;/* Make it full width like other inputs */
+    margin-top: 0; /* Remove previous margin */
+    padding: 20px; /* Consistent padding */
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+    margin-bottom: 20px;
+}
+
+
+
+.signup-btn-form {
+    display: block;
+    height: 50px;
+    width: 30%;
+    right:16px;
+    margin-top: -30px; 
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    clear:both;
+    position: relative; /* Ensure it's moveable */
+   margin-left:auto;
+   
+}
+
+
+.login-link {
+    text-align:end; /* Center it under the button */
+    font-size: 14px; /* Adjust size */
+    margin-top: 8px; /* Space between button and link */
+    color: #777; /* Light gray text */
+}
+
+.login-link a {
+    color: var(--primary_color); /* Use the main blue color */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+}
+
+.login-link a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+ 
+
+
+input[type="email"] {
+    width: 470px !important; /* Ensure it matches other inputs */
+    height: 55px;
+    padding: 18px;
+    font-size: 18px;
+}
+
+select {
+    width: 280px; 
+    height:55px;  /* Wider */
+    padding: 18px;
+    font-size: 18px;
+    color: #4A4A4A;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    background-color: var(--input_placeholder);
+    appearance: auto; /* Remove default browser styles */
+}
+
+
+input::placeholder {
+  
+    color: #4A4A4A;
+    
+    font-size: 18px; /* Adjust size */
+    
+}
+
+  
+
+/* Only modify the positioning of icons without changing input dimensions */
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Add left padding to inputs without changing other dimensions */
+.input-icon input {
+    padding-left: 36px;
+}
+
+/* Add left padding to selects without changing other dimensions */
+.input-icon select {
+    padding-left: 36px;
+}
+
+/* Generic icon styling */
+i {
+    color: #777; /* Gray color for icons */
+    font-size: 18px; /* Consistent size with input icons */
+}
+#menu-toggle {
+    display: none;
+}
+
+
+/* First name input container */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Styling the input box */
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; /* Space for the icon */
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+}
+
+/* Move only the email icon to the left */
+.input-container input[type="email"] + i {
+    right: 29px; /* Adjust to move it left */
+}
+
+
+/* Positioning the user icon inside the input */
+.input-container i {
+    position: absolute;
+    right: 12px; /* Adjust the icon position */
+    top: 50%;
+    transform: translateY(-60%);
+    color: #777;
+    font-size: 18px;
+    pointer-events: none; /* Prevents clicking on the icon */
+}
+
+
+
+
+@media screen and (min-width: 1025px) {
+    #menu-toggle {
+        position: absolute;
+        right: 20px;
+        /* Moves it to the right */
+        top: 20px;
+        /* Adjusts its vertical position */
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+
+    header {
+        position: relative;
+        /* Ensures positioning works correctly */
+    }
+}
+
+
+
+/* 🔹 MEDIA QUERIES */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+
+    
+    
+    .left-content{
+        display:none;
+    }
+
+    .ipad-text {
+        display: block !important;
+        position: absolute;
+        bottom: 80px; /* Position text 10px from the bottom */
+        left: 10px; /* Align text to the left */
+        font-size: 20px !important;
+        color: white;
+        text-align: left !important;
+        white-space: pre-wrap !important;
+        margin-top: 20px !important;
+        font-weight: inherit;
+      }
+
+    .right-content form {
+        display: flex;
+        flex-direction: column; /* Stack inputs vertically */
+        align-items: center; /* Center them */
+        gap: 14px; /* Add space between inputs */
+        width: 100%;
+        margin: 0;
+        padding: 0;
+       
+    }
+    
+    .right-content .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px; /* Adjust this value to increase/decrease space */
+       width:100%;/* Remove unwanted padding */
+       margin: 0;
+       padding: 0;
+    }
+    
+    
+    .right-content .form-col {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px; /* Ensure inputs take full width */
+        margin: 0;
+    padding: 0;
+    }
+
+    .right-content .input-container {
+        width: 100%;
+        max-width: 280px; /* Ensures uniform width */
+        margin: 0 auto; 
+        padding:5px 0; /* Removes any extra padding */
+        align-items: center;
+    }
+    
+    .right-content .input-container input {
+
+         width: 100% !important;  /* Ensure inputs take full width */
+    height: 45px; /* Adjust height */
+    font-size: 14px; /* Adjust font size */
+    margin: 0;
+    padding: 12px 0; /* Adjust padding */
+    }
+    
+    
+    
+    
+    .right-content input,
+    .right-content select {
+        width: 100% !important; /* Ensure same width for all inputs */
+        height: 55px !important; /* Set a fixed height for uniformity */
+        padding: 16px;
+        font-size: 14px !important; /* Adjust text size for better readability */
+        box-sizing: border-box; 
+        border: 1px solid #ccc;
+        margin:  10px 0!important;
+    }
+    #email {
+        margin-top: 8px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Fix space between email and select */
+    #role {
+        margin-top: 10px !important; /* Reduce gap aggressively */
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    /* Ensure the button is aligned properly */
+    .signup-btn-form {
+        align-items:center!important;
+        width: 100% !important;
+        margin-top: 20px; /* Increases space above the button */
+        padding: 12px 0;
+        margin-left: 40px;
+    }
+    
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin: auto;
+        max-width: 80%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: auto;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        transition: 0.3s;
+        cursor: pointer;
+        
+    }
+
+    nav a:hover {
+        color: var(--primary_color);
+    }
+
+    .signup-btn {
+        background-color:var(--primary_color);
+        color: var(--primary_color);
+        border: 1px solid var(--primary_color);
+        padding: 9px 14px;
+        font-size: 16px;
+        border-radius: 7px;
+    }
+
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    #nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 15;
+        
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu a {
+        color: white;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+
+
+
+    
+}
+/* 📱 Phones (≤ 480px) */
+@media screen and (max-width: 480px) {
+    /* Hide the original left content */
+    .left-content {
+        display: none;
+    }
+
+    /* Show the alternative text */
+    .ipad-text {
+        display: block !important;
+        position: absolute;
+        bottom: 40px;
+        left: 10px;
+        font-size: 16px !important;
+        color: white;
+        text-align: left !important;
+        white-space: pre-wrap !important;
+        margin-top: 10px !important;
+        font-weight: inherit;
+    }
+
+    /* Responsive form layout */
+    .right-content form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .right-content .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .right-content .form-col {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .right-content .input-container {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+        padding: 5px 0;
+        align-items: center;
+    }
+
+    .right-content .input-container input {
+        width: 100% !important;
+        height: 40px;
+        font-size: 12px;
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .right-content input,
+    .right-content select {
+        width: 100% !important;
+        height: 50px !important;
+        padding: 12px;
+        font-size: 12px !important;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        margin: 8px 0 !important;
+    }
+
+    /* Specific input adjustments */
+    #email {
+        margin-top: 5px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    #role {
+        margin-top: 8px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Button styling */
+    .signup-btn-form {
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 15px;
+        padding: 10px 0;
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+    /* Header and navigation adjustments */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    nav {
+        display: none; /* Hide nav on phone screens */
+    }
+
+    /* Mobile menu toggle */
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+        color: white;
+        font-size: 20px;
+    }
+
+    #nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 15;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu a {
+        color: white;
+        font-size: 20px;
+        margin: 10px 0;
+        text-align: center;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .signup-btn {
+        background-color: transparent;
+        color: white;
+        border: 1px solid white;
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    /* Adjust main content for phone */
+    main {
+        padding: 15px;
+        margin-top: 60px;
+    }
+
+    .right-content {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    label {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+}
