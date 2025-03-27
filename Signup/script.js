@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Navbar toggle functionality
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 
@@ -11,16 +12,23 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelectorAll("#nav-menu a").forEach(link => {
     link.addEventListener("click", function () {
         navMenu.classList.remove("active"); // Closes the menu after clicking
+
+    // Close the menu after clicking a link
+    document.querySelectorAll("#nav-menu a").forEach(link => {
+        link.addEventListener("click", function () {
+            navMenu.classList.remove("active"); // Closes the menu after clicking
+        });
     });
-});
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Form submit functionality
     const form = document.getElementById('signupForm');
-
     if (form) {
         form.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent default form submission
+
+            console.log("Form submitted");  // Debugging line to check if form submission is triggered
 
             // Get form values
             const firstName = document.getElementById('firstName').value.trim();
@@ -54,9 +62,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Password visibility toggle functionality
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+
+    if (togglePassword) {
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.classList.remove("fa-eye-slash");
+                this.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                this.classList.remove("fa-eye");
+                this.classList.add("fa-eye-slash");
+            }
+        });
+    }
+
     // Add focus effects to inputs
     const inputs = document.querySelectorAll('input, select');
-
     inputs.forEach(input => {
         input.addEventListener('focus', function () {
             this.style.borderColor = 'red';
