@@ -1,21 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+   
     // Navbar toggle functionality
     const menuToggle = document.getElementById("menu-toggle");
     const navMenu = document.getElementById("nav-menu");
 
+    
     if (menuToggle && navMenu) {
         menuToggle.addEventListener("click", function () {
+            console.log("Menu button clicked!"); // Debugging
             navMenu.classList.toggle("active");
         });
-    }
-
-    // Close the menu after clicking a link
-    document.querySelectorAll("#nav-menu a").forEach(link => {
-        link.addEventListener("click", function () {
-            navMenu.classList.remove("active"); // Closes the menu after clicking
-        });
-    });
-
+    } 
+    
     // Form submit functionality
     const form = document.getElementById('signupForm');
     if (form) {
@@ -66,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Password visibility toggle functionality
     const togglePassword = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
-    const confirmPasswordInput = document.getElementById("confirmPassword");
+    const toggleConfirmPassword = document.getElementById("confirmPassword");
 
     if (togglePassword) {
         togglePassword.addEventListener("click", function () {
@@ -80,6 +76,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmPasswordInput.type = "password"; // Hide confirm password again
                 this.classList.remove("fa-eye");
                 this.classList.add("fa-eye-slash");
+            }
+        });
+    }
+
+    if (toggleConfirmPassword) {
+        toggleConfirmPassword.addEventListener("click", function () {
+            if (confirmPasswordInput.type === "password") {
+                confirmPasswordInput.type = "text";
+                this.classList.replace("fa-eye-slash", "fa-eye");
+            } else {
+                confirmPasswordInput.type = "password";
+                this.classList.replace("fa-eye", "fa-eye-slash");
             }
         });
     }
