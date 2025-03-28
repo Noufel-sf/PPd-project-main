@@ -1,3 +1,13 @@
+// Get form values
+const firstName = document.getElementById('firstName').value.trim();
+const lastName = document.getElementById('lastName').value.trim();
+const email = document.getElementById('email').value.trim();
+const role = document.getElementById('role').value;
+const password = document.getElementById('password').value.trim();
+const sex = document.getElementById('sex').value.trim();
+const confirmPassword = document.getElementById('confirmPassword').value.trim(); // Added confirm password field
+// local variables 
+
 document.addEventListener('DOMContentLoaded', function () {
    
     // Navbar toggle functionality
@@ -20,13 +30,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             console.log("Form submitted");  // Debugging line to check if form submission is triggered
 
-            // Get form values
-            const firstName = document.getElementById('firstName').value.trim();
-            const lastName = document.getElementById('lastName').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const role = document.getElementById('role').value;
-            const password = document.getElementById('password').value.trim();
-            const confirmPassword = document.getElementById('confirmPassword').value.trim(); // Added confirm password field
 
             // Basic form validation
             if (!firstName || !lastName || !email || !role || !password || !confirmPassword) {
@@ -107,3 +110,48 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// sending the data to the backend 
+
+async function registerUser(e) {
+    e.preventDefault(); // Prevent form from submitting normally
+
+    // Create user data object
+    const userData = {
+        first_name: firstName,
+        last_name: lastName,
+        email: email,
+        role: role,
+        password: password,
+        sex: sex
+    };
+
+    try {
+        // Send POST request to backend
+        const response = await fetch("YOUR_BACKEND_API_URL_HERE", {  // nino 
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        });
+
+        const data = await response.json(); // Parse JSON response
+
+        if (response.ok) {
+            console.log("User registered successfully!");
+            alert("Sign-up successful!");
+            window.location.href = "index.html"; // Redirect after success
+        } else {
+            console.error("Registration failed:", data.message);
+            alert("Something went wrong: " + data.message);
+        }
+    } catch (error) {
+        console.error("Error in sign-up:", error);
+        alert("Something went wrong. Please try again!");
+    }
+}
+
+// Attach event listener to button
+document.getElementById("submit_btn").addEventListener("click", registerUser);
+
