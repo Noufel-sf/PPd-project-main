@@ -1,12 +1,4 @@
-// Get form values
-const firstName = document.getElementById('firstName').value.trim();
-const lastName = document.getElementById('lastName').value.trim();
-const email = document.getElementById('email').value.trim();
-const role = document.getElementById('role').value;
-const password = document.getElementById('password').value.trim();
-const sex = document.getElementById('sex').value.trim();
-const confirmPassword = document.getElementById('confirmPassword').value.trim(); // Added confirm password field
-// local variables 
+
 
 document.addEventListener('DOMContentLoaded', function () {
    
@@ -65,35 +57,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Password visibility toggle functionality
     const togglePassword = document.getElementById("togglePassword");
     const passwordInput = document.getElementById("password");
-    const toggleConfirmPassword = document.getElementById("confirmPassword");
+    const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+    const confirmPasswordInput = document.getElementById("confirmPassword");
 
     if (togglePassword) {
-        togglePassword.addEventListener("click", function () {
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                confirmPasswordInput.type = "text"; // Also show confirm password
-                this.classList.remove("fa-eye-slash");
-                this.classList.add("fa-eye");
-            } else {
-                passwordInput.type = "password";
-                confirmPasswordInput.type = "password"; // Hide confirm password again
-                this.classList.remove("fa-eye");
-                this.classList.add("fa-eye-slash");
-            }
+        togglePassword.addEventListener("click", function (e) {
+            e.preventDefault();
+            toggleVisibility(passwordInput, this);
         });
     }
 
     if (toggleConfirmPassword) {
-        toggleConfirmPassword.addEventListener("click", function () {
-            if (confirmPasswordInput.type === "password") {
-                confirmPasswordInput.type = "text";
-                this.classList.replace("fa-eye-slash", "fa-eye");
-            } else {
-                confirmPasswordInput.type = "password";
-                this.classList.replace("fa-eye", "fa-eye-slash");
-            }
+        toggleConfirmPassword.addEventListener("click", function (e) {
+            e.preventDefault();
+            toggleVisibility(confirmPasswordInput, this);
         });
     }
+
+    function toggleVisibility(inputField, toggleIcon) {
+        const type = inputField.getAttribute('type') === 'password' ? 'text' : 'password';
+        inputField.setAttribute('type', type);
+        toggleIcon.classList.toggle('fa-eye');
+        toggleIcon.classList.toggle('fa-eye-slash');
+    }
+
 
     // Add focus effects to inputs
     const inputs = document.querySelectorAll('input, select');
@@ -101,7 +88,8 @@ document.addEventListener('DOMContentLoaded', function () {
         input.addEventListener('focus', function () {
             this.style.borderColor = 'red';
             this.style.outline = 'none';
-            this.style.boxShadow = '0 0 0 2px rgba(255, 0, 0, 0.2)';
+            this.style.boxShadow = '0 0 0 2px rgba(0, 0, 255, 0.2)';
+
         });
 
         input.addEventListener('blur', function () {
@@ -111,11 +99,25 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+
+
+
 // sending the data to the backend 
 
 async function registerUser(e) {
     e.preventDefault(); // Prevent form from submitting normally
 
+
+
+    // Get form values
+const firstName = document.getElementById('firstName').value.trim();
+const lastName = document.getElementById('lastName').value.trim();
+const email = document.getElementById('email').value.trim();
+const role = document.getElementById('role').value;
+const password = document.getElementById('password').value.trim();
+const sex = document.getElementById('sex').value.trim();
+const confirmPassword = document.getElementById('confirmPassword').value.trim(); // Added confirm password field
+// local variables 
     // Create user data object
     const userData = {
         first_name: firstName,
