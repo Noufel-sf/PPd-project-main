@@ -41,8 +41,8 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: url('b1.jpg'); /* Update with actual path */
-    background-size: 100% 100%; /* Force image to stretch to full viewport */
-    background-position: center bottom; /* Position at bottom */
+    background-size: cover; /* Force image to stretch to full viewport */
+    background-position: center ; /* Position at bottom */
     background-repeat: no-repeat;
     z-index: -1; /* Place behind content */
 }
@@ -50,12 +50,12 @@ body::before {
 /* Make container transparent to show background */
 .container {
     background-color: transparent; /* Make it transparent to see background */
-    width: 120%; /* Increase width beyond the screen */
-    max-width: none;
+    width: 100%; /* Increase width beyond the screen */
+    max-width: 1800px;
     height: 100vh;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    overflow: hidden;
+    overflow: auto;
     padding-left: 0;
     position: relative;
 }
@@ -117,22 +117,6 @@ nav a:hover {
     color: var(--primary_color);
 }
 
-.signup-btn {
-    display: inline-block;
-    width: auto;
-    background-color: var(--primary_color);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 7px;
-    cursor: pointer;
-    transition: background 0.3s;
-    text-align: center;
-    margin-top: 10px;
-
-}
 
 
 
@@ -277,11 +261,11 @@ main {
 
 
 .right-content {
-    width: 60%; /* Adjust width as needed */
+    width: 50%; /* Adjust width as needed */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end; /* Align elements to the right */
+    align-items: center; /* Align elements to the right */
     padding: 20px;
 }
 
@@ -302,9 +286,14 @@ main {
     display: flex;
     align-items: flex-end;
     gap: 5px; /* Keeps minimal space between columns */
-    margin-bottom: 20px; /* Reduced margin */
+    margin-bottom: 15px; /* Reduced margin */
     padding-top: 5px;
 }
+.form-row.password-row {
+    margin-top: -20px; /* Adjust as needed */
+}
+
+
 .form-col {
     width: 280px;
     display: flex;
@@ -361,7 +350,7 @@ label[for="role"] {
 
 
 input, select {
-    width: 280px;
+    width: 100%;
     height:55px;
     padding: 18px; /* Same padding */
     border: 1px solid var(--border_color);
@@ -372,42 +361,99 @@ input, select {
     box-sizing: border-box;
 }
 
-input[type="password"] {
-    width: 280px; 
-    height:55px;/* Make it full width like other inputs */
-    margin-top: 0; /* Remove previous margin */
-    padding: 20px; /* Consistent padding */
+input[type="password"][id="password"],
+input[type="text"][id="password"]{
+    width: 280px ; /* Ensures consistent width */
+    height: 55px ;
+    padding: 18px ;
+    padding-right: 40px ;
+    border: 1px solid var(--border_color) ;
+    border-radius: 5px ;
+    font-size: 18px ;
+    background-color: var(--input_placeholder) ;
+    box-sizing: border-box ;
+    margin-bottom: 20px ;
+    transition: none ;
+    appearance: none;
+    -webkit-appearance: none ;
+}
+
+input[type="password"][id="confirmPassword"],
+input[type="text"][id="confirmPassword"] { /* Ensures confirm password input does not move */
+    width: 280px ; 
+    height: 55px ;
+    padding: 18px ;
+    padding-right: 40px ;
+    border: 1px solid var(--border_color) ;
+    border-radius: 5px ;
+    font-size: 18px ;
+    background-color: var(--input_placeholder) ;
+    box-sizing: border-box ;
+    margin-bottom: 20px ;
+    margin-left: -1px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px; /* Increase margin-bottom for better spacing */
+    display: flex;
+    align-items: center;
+}
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; /* Space for the eye icon */
     border: 1px solid var(--border_color);
     border-radius: 5px;
     font-size: 16px;
     background-color: var(--input_placeholder);
-    box-sizing: border-box; /* Ensure padding doesn't increase width */
-    margin-bottom: 20px;
 }
 
-/* Confirm Password Input Styling */
-input[type="password"][id="confirmPassword"] {
-    width: 280px; 
-    height: 55px;
-    margin-top: 0;
-    padding: 20px;
-    border: 1px solid var(--border_color);
-    border-radius: 5px;
+
+/* Position the eye icon for both password fields */
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 10;
+}
+
+.password-toggle i {
     font-size: 16px;
-    background-color: var(--input_placeholder);
-    box-sizing: border-box;
-    margin-bottom: 20px;
+    color: #666;
 }
 
-
+#toggleConfirmPassword {
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
 .button-row {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center;
-    width: 100%; /* Center-align elements */
+    flex-direction: column;
+    align-items: center; /* Center both button and login link */
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 10px;
+    gap: 10px; /* Adjust space between elements */
+}
+
+.button-row .signup-btn-form {
+    width: 80%; /* Make button slightly smaller for better design */
+    max-width: 300px; /* Prevent it from being too wide */
+    margin-bottom: 5px; /* Small space below button */
+}
+
+.button-row .login-link {
+    margin-top: 5px; /* Extra space to separate from button */
 }
 
 .signup-btn-form {
+    
     display: block;
     height: 50px;
     width: 30%;
@@ -428,20 +474,21 @@ input[type="password"][id="confirmPassword"] {
 
 .login-link {
     text-align: center;
+    color:#4A4A4A;
+    margin-top: 15px;
     font-size: 14px;
-    margin-top: 8px;
-    color: #777;
+    display:block;
+    visibility: visible;
 }
 
-
 .login-link a {
-    color: var(--primary_color); /* Use the main blue color */
+    color: var(--primary_color);
+    text-decoration: none;
     font-weight: bold;
-    text-decoration: none; /* Remove underline */
 }
 
 .login-link a:hover {
-    text-decoration: underline; /* Add underline on hover */
+    text-decoration: underline;
 }
 
  
@@ -518,6 +565,10 @@ i {
     width: 100%;
 }
 
+
+
+
+
 /* Styling the input box */
 .input-container input {
     width: 100%;
@@ -537,8 +588,17 @@ i {
 .input-container input[type="password"] + i {
     top: 40%; /* Adjust this value to move the icon up */
 }
+.form-col input[type="password"][id="confirmPassword"] + .password-toggle {
+    position: absolute;
+    right: 12px; /* Corrected to right: 12px */
+    top: 50%;
+    transform: translateY(-50%);
+}
 
-
+.form-col input[type="password"][id="confirmPassword"] + .password-toggle i {
+    font-size: 16px;
+    color: #666;
+}
 
 /* Positioning the user icon inside the input */
 .input-container i {
@@ -578,524 +638,274 @@ i {
         /* Ensures positioning works correctly */
     }
 }
-
 /* 🔹 MEDIA QUERIES */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-
-    .sentence {
-
-        font-size: 32px; /* Adjust font size for better readability */
-        line-height: 1.5;
-        text-align: center; /* Center the text */
-        margin-top: 500px;
-        color: white; /* Set text color */
-        padding: 20px;
-        font-family: 'Arial', sans-serif; /* Set a clean font */
-    }
-   
-    
-    
-
-    #email {
-        font-size: 14px !important; /* Slightly bigger */
-        padding: 8px !important; /* More comfortable spacing */
-        height: 45px !important; /* Small increase */
-        width: 100% !important; /* Takes more space */
-        max-width: 280px !important; /* Prevents it from being too small */
-        text-align: left;
-    }
-    .left-content {
-        display: none;
-    }
-    
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: rgba(255, 255, 255, 0.15);/* Fallback color */
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('b3.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
-
-    main {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    .right-content {
-        width: 100%;
-        max-width: 350px;
-        background-color: transparent;
-
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+@media screen  and (max-width: 768px) {
 
     .form-heading {
         color: white;
+    }
+    
+.left-content {
+    display: none; /* Hide left content on smaller screens */
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('b3.jpg'); /* Ensure the correct image name */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+    .sentence {
+        font-size: 32px;
+        line-height: 1.5;
         text-align: center;
-        font-size: 22px;
-        margin-bottom: 20px;
+        margin-top: 500px;
+        color: white;
+        padding: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .logo {
+        position: absolute;
+        top: 10px; /* Adjust as needed */
+        left: 10px; /* Adjust as needed */
+    }
+    
+
+    
+
+    /* 🔹 General styling for the header */
+
+
+/* 🔹 Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+/* 🔹 Hide nav by default for small screens */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-left: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--primary_color);
+}
+
+/* 🔹 Menu Toggle Button */
+#menu-toggle {
+    display: block;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+}
+
+/* 🔹 Full-Screen Menu */
+#nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary_color); /* ✅ Primary color instead of black */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+/* 🔹 Show menu when active */
+#nav-menu.active {
+    display: flex;
+}
+
+#nav-menu a {
+    color: white;
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+/* 🔹 Signup Button */
+#nav-menu .signup-btn {
+    background-color: white;
+    color: var(--primary_color);
+    font-size: 24px;
+    margin: 15px 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+.input-container input,
+    .input-group input,
+    select {
+        width: 100%; /* Full width inside container */
+        max-width: 280px; 
+        background-color: #34405d !important;
+        color: white !important;/* Adjust as needed */
+        height: 50px; /* Ensures same height */
+        padding: 12px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        box-sizing: border-box; /* Prevents size issues */
+    }
+
+    .input-container input::placeholder,
+.input-group input::placeholder {
+    color: white !important; /* ✅ Makes placeholders white */
+    opacity: 0.8;
+}
+
+
+    .input-group {
+        position: relative;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .input-group .password-toggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
     }
 
     .form-row {
         display: flex;
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: column; /* Stack inputs vertically */
+        align-items: center;
+        gap: 12px; /* Space between inputs */
     }
 
     .form-col {
         width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    input, select {
-        width: 100% !important;
-        height: 50px !important;
-        background-color:#34405D !important;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-
-    input::placeholder {
-        color:rgba(255, 255, 255, 0.5);
-    }
-
-    .input-icon {
-        position: relative;
-    }
-
-    .input-icon i {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: rgba(255, 255, 255, 0.9);
-        z-index: 1;
-        pointer-events: none;
-    }
-
-    .signup-btn-form {
-        width: 100%;
-        background-color: #4155E8;
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 20px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .signup-btn-form:hover {
-        background-color: #3344CC;
-        color:white;
-    }
-
-    .login-link {
-        text-align: center;
-        color: white;
-        margin-top: 15px;
-        font-size: 14px;
-    }
-
-    .login-link a {
-        color: #4155E8;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .login-link a:hover {
-        text-decoration: underline;
-    }
-
-    /* Hide header and nav on mobile */
-   
-    /* Ensure full height and width */
-    html, body {
-        max-height: 100vh;
-        overflow: hidden;
-    }
-
-    
-    header {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        margin: auto;
-        max-width: 80%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: transparent;
+        justify-content: center;
+    }
+    
+    #email {
+        width: 100% !important; /* Reduce width */
+        margin: 0 auto; /* Center */
+        display: block;
+    }
+    
+    #password,
+    #confirmPassword {
+        height: 50px !important;
+        width: 100%;
+    }
+    #confirmPassword {
+        margin-top: -30px; /* Move it up */
+    }
+    .password-toggle {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+        cursor: pointer;
         z-index: 10;
     }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo h1 {
-        font-size: 2rem;
-        font-weight: 800;
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        margin-left: auto;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: white;
-        font-weight: bolder;
-        font-size: 18px;
-        transition: 0.3s;
-        cursor: pointer;
-        
-    }
-
-    nav a:hover {
-        color: var(--primary_color);
-    }
-
     
-
-    #menu-toggle {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 20;
+    /* Ensure confirm password icon is positioned correctly */
+    #toggleConfirmPassword {
+        position: absolute;
+        /* Adjust right spacing if needed */
+        top:-15px; /* Move icon higher */
+        transform: translateY(-50%);
     }
-
-    #nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.9);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 15;
-        
-    }
-
-    #nav-menu.active {
-        display: flex;
-    }
-
-    #nav-menu a {
-       
-        color: white;
-        font-size: 24px;
-        margin: 15px 0;
-    }
-
-
-    #nav-menu .signup-btn {
-        background-color :var(--primary_color);
-        color: white;
-        font-size: 24px;
-        margin: 15px 0;
-    }
-
-
-}
     
-
-
-
-
-/* Mobile styles */
 @media screen and (max-width: 480px) {
-
-.right-content .form-heading {
-    display: none;
-}
-
-.sentence{
-    display:none;
-}
-
-
-    #email {
-        font-size: 14px !important; /* Slightly bigger */
-        padding: 8px !important; /* More comfortable spacing */
-        height: 45px !important; /* Small increase */
-        width: 100% !important; /* Takes more space */
-        max-width: 280px !important; /* Prevents it from being too small */
-        text-align: left;
+    body::before {
+        background-image: url('b2.jpg'); /* ✅ Change only the background image */
+       
     }
-    .left-content {
+    .sentence{
         display: none;
     }
-    
-    body {
-        margin: 0;
-        padding: 0;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: rgba(255, 255, 255, 0.15);/* Fallback color */
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('b2.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        z-index: -1;
-    }
-
-    main {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0 20px;
-    }
-
-    .right-content {
-        width: 100%;
-        max-width: 350px;
-        background-color: transparent;
-
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
     .form-heading {
         color: black;
-        text-align: center;
-        font-size: 22px;
-        margin-bottom: 20px;
     }
-
-    .form-row {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .form-col {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    input, select {
-        width: 100% !important;
-        height: 50px !important;
-        background-color:#34405D !important;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-
-    input::placeholder {
-        color:rgba(255, 255, 255, 0.5);
-    }
-
-    .input-icon {
-        position: relative;
-    }
-
-    .input-icon i {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-        color: rgba(255, 255, 255, 0.9);
-        z-index: 1;
-        pointer-events: none;
-    }
-
-    .signup-btn-form {
-        width: 100%;
-        background-color: #4155E8;
-        color: white;
-        border: none;
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 20px;
-        font-size: 16px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .signup-btn-form:hover {
-        background-color: #3344CC;
-    }
-
-    .login-link {
-        text-align: center;
-        color: white;
-        margin-top: 15px;
-        font-size: 14px;
-    }
-
-    .login-link a {
-        color: #4155E8;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .login-link a:hover {
-        text-decoration: underline;
-    }
-
-    /* Hide header and nav on mobile */
-   
-    /* Ensure full height and width */
-    html, body {
-        max-height: 100vh;
-        overflow: hidden;
-    }
-
-
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px;
-        margin: auto;
-        max-width: 80%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        background-color: transparent;
-        z-index: 10;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo h1 {
-        font-size: 2rem;
-        font-weight: 800;
-    }
-
-    nav {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        margin-left: auto;
-    }
-
-    nav a {
-        text-decoration: none;
-        color: white;
-        font-weight: bolder;
-        font-size: 18px;
-        transition: 0.3s;
-        cursor: pointer;
-        
-    }
-
-    nav a:hover {
-        color: var(--primary_color);
-    }
-
     
+/* Ensure the body takes up the full screen height */
+body {
+    display: flex;
+    justify-content: flex-start;  /* Align items to the left */
+    align-items: center;  /* Center vertically */
+    min-height: 100vh;  /* Full screen height */
+    margin: 0;
+    background-color: #f5f5f5;
+}
 
-    #menu-toggle {
-        display: block;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 20;
-    }
+/* The container for the form */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack the input fields vertically */
+    align-items: flex-start; /* Align the items inside the container to the left */
+    width: 100%;
+    max-width: 400px; /* Optional: adjust the width of the form */
+    padding: 20px;
+    background-color: #34405d; /* Set the background color for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-left: 20px;  /* Align form to the left */
+}
 
-    #nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0,0,0,0.9);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 15;
-        
-    }
+/* Styling for the input elements */
+.input-container input,
+.input-group input,
+select {
+    width: 100%;  /* Full width inside the form */
+    max-width: 280px;  /* Limit the width of inputs */
+    background-color: #34405d; /* Set background color of the inputs */
+    color: white; /* Set text color */
+    height: 50px; /* Input height */
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-sizing: border-box;
+}
 
-    #nav-menu.active {
-        display: flex;
-    }
+/* Additional styles for input containers */
+.input-container, .input-group {
+    width: 100%;
+    max-width: 280px;
+    margin-bottom: 15px; /* Add space between inputs */
+}
 
-    #nav-menu a {
-       
-        color: white;
-        font-size: 24px;
-        margin: 15px 0;
-    }
+/* Align labels or other text elements in the form */
 
 
-    #nav-menu .signup-btn {
-        background-color :var(--primary_color);
-        color: white;
-        font-size: 24px;
-        margin: 15px 0;
-    }
 
 }
+}
+
