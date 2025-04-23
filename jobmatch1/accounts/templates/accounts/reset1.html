@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Forgot Password</title>
+        <link rel="stylesheet" href="{% static 'accounts/css/reset1.css' %}">
+        <script src="https://kit.fontawesome.com/122c77fce3.js" crossorigin="anonymous"></script>   
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <a href="{% url 'login_page' %}">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back
+                </a>
+            </header>
+
+            <nav></nav>
+
+            <main>
+                <section class="left">
+                    <form id="reset-form" method="POST">
+                        {% csrf_token %}
+                        <div class="input-email">
+                            <input type="email" id="email" placeholder="Email" required>
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <button type="submit" class="reset-btn">Reset Password</button>
+                    </form>
+                </section>
+                    
+                <section class="right">
+                    <div class="text">
+                        <h2>Forgot <br>Your Password?</h2>
+                        <i class="fa-light fa-lock"></i> 
+                    </div>
+                    <p>
+                        <span>Enter</span> your e-mail <br>
+                        to reset your password.
+                    </p>
+                </section>
+
+                <footer></footer>
+            </main>
+        </div>
+        <script src="{% static 'accounts/js/reset1.js' %}"></script>
+    </body>
+</html>

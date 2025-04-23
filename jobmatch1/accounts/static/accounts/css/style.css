@@ -1,0 +1,1029 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary_color: #4155E8;
+    --white_color: #ffffff;
+    --black_color: #222222;
+    --input_placeholder: #f3f3f3;
+    --background_gray: #C4C4C4;
+    --border_color: #ddd;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5; /* Fallback color */
+}
+
+/* Add this before your container style */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/cc.jpg'); /* Updated to use cc.jpg */
+    background-size: 100% 100%; /* Force image to stretch to full viewport */
+    background-position: center bottom; /* Position at bottom */
+    background-repeat: no-repeat;
+    z-index: -1; /* Place behind content */
+}
+
+/* Make container transparent to show background */
+.container {
+    background-color: transparent; /* Make it transparent to see background */
+    width: 120%; /* Increase width beyond the screen */
+    max-width: none;
+    height: 100vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: auto;
+    padding-left: 0;
+    position: relative;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    margin: auto;
+    max-width: 80%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+.job {
+    background-color: var(--primary_color);
+    color: white; /* White text */
+    padding: 2px 5px; /* Padding to match design */
+    border-radius: 12px; /* Rounded corners */
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.match {
+    color: var(--black_color);
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1.5rem;
+    margin-left: auto;
+    width: 60%;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black_color);
+    font-weight: bolder;
+    font-size: 20px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: var(--primary_color);
+}
+
+.signup-btn {
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Input Styles */
+input:focus,
+select:focus {
+    border-color: var(--primary_color);
+    outline: none;
+    box-shadow: var(--primary_color);
+}
+
+.signup-btn {
+    display: inline-block;
+    width: auto;
+    background-color: white;
+    color: var(--primary_color);
+    border: 1px solid var(--primary_color);
+    padding: 9px 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    text-transform: capitalize;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-btn {
+    display: inline-block;
+    width: auto;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    color: var(--primary_color);
+    background-color: var(--white_color);
+    border: 1px solid var(--primary_color);
+}
+
+.signup-btn-form:hover {
+    background-color: blue;
+}
+
+/* Main Layout */
+main {
+    display: flex;
+    justify-content: flex-end; /* Push everything to the right */
+    align-items: center;
+    height: 100vh;
+    padding: 10px;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.left-content {
+    position: absolute;
+    left: 2%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 3%; 
+    padding-left: 5%;
+    padding-right: 20%;
+    text-align: left;
+}
+
+.left-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: left;
+    width: 100%;
+    line-height: 2;
+    font-weight: inherit;
+}
+
+.left-content h2 span, 
+.tagline span, 
+.description span {
+    font-size: 30px;
+    color: var(--primary_color);
+    font-weight: bold;
+}
+
+.ipad-text {
+    display: none;
+}
+
+/* Styling for the first paragraph (Tagline) */
+.tagline {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Styling for the second paragraph (Description) */
+.description {
+    font-size: 24px;
+    font-weight: inherit;
+    line-height: 1.5;
+    margin-top: 15px;
+    color: white;
+}
+
+/* Right content create new account */
+.form-heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--black_color);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.right-content {
+    width: 60%; /* Adjust width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end; /* Align elements to the right */
+    padding: 20px;
+}
+
+.right-content form {
+    width: 100%; /* Ensure form takes full width */
+    max-width: 650px; /* Set a limit */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.password-group {
+    margin-bottom: 0; /* Remove bottom margin from password group */
+}
+
+.form-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px; /* Keeps minimal space between columns */
+    margin-bottom: 20px; /* Reduced margin */
+    padding-top: 5px;
+}
+
+.form-col {
+    width: 280px;
+    display: flex;
+    align-items: flex-end; /* Ensures everything inside stays aligned */
+    position: relative; /* Keeps the icon inside */
+    margin-top: 20px; /* Move it down */
+    margin-right: 20px;
+}
+
+.form-col:nth-child(1) { /* Moves the select box down */
+    margin-top: 10px;
+}
+
+.form-col:nth-child(2) { /* Moves the password field down */
+    margin-top: 10px;
+}
+
+#sex {
+    width: 280px;
+    height: 55px;
+    padding: 18px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: var(--input_placeholder);
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 22px;
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Adjusts spacing for "Choose your role" */
+label[for="role"] {
+    font-size: 22px;  /* Adjust font size */
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 10px; /* Add space below */
+    display: block; /* Ensures spacing applies correctly */
+}
+
+#role {
+    width: 280px;
+    padding: 16px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+    margin-bottom: 20px; /* Add space below the dropdown */
+}
+
+input, select {
+    width: 280px;
+    height: 55px;
+    padding: 18px; /* Same padding */
+    border: 1px solid var(--border_color);
+    border-radius: 5px; /* Consistent rounded corners */
+    font-size: 18px;
+    background-color: var(--input_placeholder);
+    display: block; /* Ensures block-level display */
+    box-sizing: border-box;
+}
+
+input[type="password"] {
+    width: 280px; 
+    height: 55px; /* Make it full width like other inputs */
+    margin-top: 0; /* Remove previous margin */
+    padding: 20px; /* Consistent padding */
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+    box-sizing: border-box; /* Ensure padding doesn't increase width */
+    margin-bottom: 20px;
+}
+
+/* Confirm Password Input Styling */
+input[type="password"][id="confirmPassword"] {
+    width: 280px; 
+    height: 55px;
+    margin-top: 0;
+    padding: 20px;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    width: 100%; /* Center-align elements */
+}
+
+.signup-btn-form {
+    display: block;
+    height: 50px;
+    width: 30%;
+    max-width: 300px;
+    background-color: var(--primary_color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-align: center;
+    position: relative;
+    margin: 10px auto; /* Center the button */
+}
+
+.login-link {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+    color: #777;
+}
+
+.login-link a {
+    color: var(--primary_color); /* Use the main blue color */
+    font-weight: bold;
+    text-decoration: none; /* Remove underline */
+}
+
+.login-link a:hover {
+    text-decoration: underline; /* Add underline on hover */
+}
+
+input[type="email"] {
+    width: 585px !important; /* Ensure it matches other inputs */
+    height: 55px;
+    padding: 18px;
+    font-size: 18px;
+}
+
+select {
+    width: 280px; 
+    height: 55px;  /* Wider */
+    padding: 18px;
+    font-size: 18px;
+    color: #4A4A4A;
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    background-color: var(--input_placeholder);
+    appearance: auto; /* Remove default browser styles */
+}
+
+input::placeholder {
+    color: #4A4A4A;
+    font-size: 18px; /* Adjust size */
+}
+
+/* Only modify the positioning of icons without changing input dimensions */
+.input-icon {
+    position: relative;
+}
+
+.input-icon i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Add left padding to inputs without changing other dimensions */
+.input-icon input {
+    padding-left: 36px;
+}
+
+/* Add left padding to selects without changing other dimensions */
+.input-icon select {
+    padding-left: 36px;
+}
+
+/* Generic icon styling */
+i {
+    color: #777; /* Gray color for icons */
+    font-size: 18px; /* Consistent size with input icons */
+}
+
+#menu-toggle {
+    display: none;
+}
+
+/* First name input container */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Styling the input box */
+.input-container input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 40px; /* Space for the icon */
+    border: 1px solid var(--border_color);
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: var(--input_placeholder);
+}
+
+/* Move only the email icon to the left */
+.input-container input[type="email"] + i {
+    right: -295px; /* Adjust to move it left */
+}
+
+.input-container input[type="password"] + i {
+    top: 40%; /* Adjust this value to move the icon up */
+}
+
+/* Positioning the user icon inside the input */
+.input-container i {
+    position: absolute;
+    right: 12px; /* Adjust the icon position */
+    top: 50%;
+    transform: translateY(-60%);
+    color: #777;
+    font-size: 18px;
+    pointer-events: none; /* Prevents clicking on the icon */
+}
+
+@media screen and (min-width: 1024px) {
+    .sentence {
+        display: none;
+    }
+    #menu-toggle {
+        display: none;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        font-size: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+    
+    header {
+        position: relative;
+    }
+}
+
+/* 🔹 MEDIA QUERIES */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .sentence {
+        font-size: 32px;
+        line-height: 1.5;
+        text-align: center;
+        margin-top: 500px;
+        color: white;
+        padding: 20px;
+        font-family: 'Arial', sans-serif;
+    }
+    
+    #email {
+        font-size: 14px !important;
+        padding: 8px !important;
+        height: 45px !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: left;
+    }
+    .left-content {
+        display: none;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/iness2.jpg'); /* Updated to use iness2.jpg */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+
+    main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .right-content {
+        width: 100%;
+        max-width: 350px;
+        background-color: transparent;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-heading {
+        color: white;
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-col {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    input, select {
+        width: 100% !important;
+        height: 50px !important;
+        background-color: #34405D !important;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .input-icon {
+        position: relative;
+    }
+
+    .input-icon i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.9);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .signup-btn-form {
+        width: 100%;
+        background-color: #4155E8;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup-btn-form:hover {
+        background-color: #3344CC;
+        color: white;
+    }
+
+    .login-link {
+        text-align: center;
+        color: white;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .login-link a {
+        color: #4155E8;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    html, body {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin: auto;
+        max-width: 80%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: auto;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    nav a:hover {
+        color: var(--primary_color);
+    }
+
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    #nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 15;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu a {
+        color: white;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+
+    #nav-menu .signup-btn {
+        background-color: var(--primary_color);
+        color: white;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 480px) {
+    .right-content .form-heading {
+        display: none;
+    }
+
+    .sentence {
+        display: none;
+    }
+
+    #email {
+        font-size: 14px !important;
+        padding: 8px !important;
+        height: 45px !important;
+        width: 100% !important;
+        max-width: 280px !important;
+        text-align: left;
+    }
+    .left-content {
+        display: none;
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/mobile2.jpg'); /* Updated to use mobile2.jpg */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+
+    main {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .right-content {
+        width: 100%;
+        max-width: 350px;
+        background-color: transparent;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-heading {
+        color: black;
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-col {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    input, select {
+        width: 100% !important;
+        height: 50px !important;
+        background-color: #34405D !important;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .input-icon {
+        position: relative;
+    }
+
+    .input-icon i {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255, 255, 255, 0.9);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .signup-btn-form {
+        width: 100%;
+        background-color: #4155E8;
+        color: white;
+        border: none;
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .signup-btn-form:hover {
+        background-color: #3344CC;
+    }
+
+    .login-link {
+        text-align: center;
+        color: white;
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .login-link a {
+        color: #4155E8;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .login-link a:hover {
+        text-decoration: underline;
+    }
+
+    html, body {
+        max-height: 100vh;
+        overflow: hidden;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        margin: auto;
+        max-width: 80%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: transparent;
+        z-index: 10;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+        font-weight: 800;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        margin-left: auto;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: white;
+        font-weight: bolder;
+        font-size: 18px;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    nav a:hover {
+        color: var(--primary_color);
+    }
+
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+    }
+
+    #nav-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.9);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 15;
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    #nav-menu a {
+        color: white;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+
+    #nav-menu .signup-btn {
+        background-color: var(--primary_color);
+        color: white;
+        font-size: 24px;
+        margin: 15px 0;
+    }
+}

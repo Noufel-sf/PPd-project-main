@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Change Password - JobMatch</title>
+        <link rel="stylesheet" href="{% static 'accounts/css/reset2.css' %}">
+        <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css">   
+    </head>
+
+    <body>
+        <div class="container">
+            <header>
+                <a href="{% url 'login_page' %}">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </a>
+            </header>
+
+            <nav></nav>
+
+            <main>
+                <section class="left">
+                    <form id="change-form">
+                        {% csrf_token %}
+                        <div class="inputs">
+                            <div class="newpass">
+                                <label for="new-password">Enter Your New Password</label>
+                                <input type="password" id="new-password" placeholder="New Password" oncopy="return false" onpaste="return false" oncut="return false" required>
+                                <i class="fa-solid fa-eye-slash toggle-password"></i>
+                                <!-- Eye Slash Icon -->
+                            </div>
+                            <br>
+                            <div class="confirmpass">
+                                <label for="confirm-password">Confirm Your New Password</label>
+                                <input type="password" id="confirm-password" placeholder="Confirm Password" oncopy="return false" onpaste="return false" oncut="return false" required>
+                                <i class="fa-solid fa-eye-slash toggle-password"></i>
+                                <!-- Eye Slash Icon -->
+                            </div>
+                        </div>
+                        <button type="submit" class="save-btn">Save</button>
+                        <div id="responseMessage"></div>
+                    </form>
+                </section>
+                    
+                <section class="right">
+                    <div class="text">
+                        <h2>Change <br>Your Password ...</h2>
+                        <i class="fa-light fa-lock"></i>
+                        <!-- Lock Icon -->
+                    </div>
+                </section>
+
+                <footer></footer>
+            </main>
+        </div>
+
+        <script>
+            document.querySelectorAll(".toggle-password").forEach(icon => {
+                icon.addEventListener("click", function() {
+                    let input = this.previousElementSibling;
+                    if (input.type === "password") {
+                        input.type = "text";
+                        this.classList.replace("fa-eye-slash", "fa-eye");
+                    } else {
+                        input.type = "password";
+                        this.classList.replace("fa-eye", "fa-eye-slash");
+                    }
+                });
+            });
+        </script>
+        <script src="{% static 'accounts/js/reset2.js' %}"></script>
+    </body>
+</html>

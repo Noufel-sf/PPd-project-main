@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jobs page</title>
+    <link rel="stylesheet" href="{% static 'jobapplication/css/style3.css' %}">
+    <script src="https://kit.fontawesome.com/122c77fce3.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="jobs_page">
+        <header class="header">
+            <h1><span>job</span>match</h1>
+            <ul>
+                <a href="{% url 'home' %}"><li>Home</li></a>
+                <li><a href="{% url 'jobapp_page' %}">jobs</a></li>
+                <li><a href="#">about us</a></li>
+                <li><a href="#">contact us</a></li>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="POST" onsubmit="clearTokens()">
+                        {% csrf_token %}
+                        <button type="submit"><li>log out</li></button>
+                    </form>
+                {% endif %}
+            </ul>
+        </header>
+
+        <section id="jobs_page">
+            <div class="jobs_container" id="jobs_container">
+                <h1>You can apply for any job here</h1>
+                {% if jobs %}
+                    {% for job in jobs %}
+                        <div class="job" data-job-id="{{ job.id }}">
+                            <div class="first">
+                                <i class="fa-regular fa-circle-user"></i>
+                                <h2 class="title">{{ job.title }}</h2>
+                            </div>     
+                            <div class="second">
+                                <h3>{{ job.salary }}</h3>
+                                <h3>{{ job.period }}</h3>
+                                <h3>{{ job.domain }}</h3>
+                                <h3>{{ job.location }}</h3>
+                            </div>
+                            <div class="third">
+                                <h3>{{ job.requirements }}</h3>
+                                <button class="apply_btn" data-job-id="{{ job.id }}">apply</button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="color: gray; text-align: center;">No jobs found. Please check back later.</p>
+                {% endif %}
+                <div id="success-message" class="success-message" style="display: none; color: green; text-align: center; margin-top: 20px; padding: 10px; background-color: #d4edda; border: 1px solid #c3e6cb; border-radius: 5px;"></div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="list">
+                <h1><span>job</span>match</h1>
+                <h6>find your <span>dream job <br></span>with your interest <br> and skills </h6>
+            </div>
+            <div class="list">
+                <h5>About</h5>
+                <ul>
+                    <li>Our Story</li>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>Press</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h5>Ressources</h5>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Community</li>
+                    <li>API Access</li>
+                    <li>Guides</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h5><span>Job</span>match</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. , in aut assumenda est rem temporibus mollitia!</p>
+                {% if user.is_authenticated %}
+                {% else %}
+                    <div class="buton">
+                        <button>sign up</button>
+                        <input type="text" name="" id="" placeholder="enter your email">
+                    </div>
+                {% endif %}
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const applyButtons = document.querySelectorAll('.apply_btn');
+            applyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const jobId = button.getAttribute('data-job-id');
+                    $.ajax({
+                        url: '/api/apply/submit/',
+                        type: 'POST',
+                        data: JSON.stringify({ job_id: jobId }),
+                        contentType: 'application/json',
+                        beforeSend: function(xhr) {
+                            xhr.setRequestHeader('X-CSRFToken', getCookie('csrftoken'));
+                        },
+                        success: function(response) {
+                            $('#success-message').text(response.message).show();
+                            setTimeout(() => $('#success-message').hide(), 10000); // Increased to 10 seconds
+                        },
+                        error: function(xhr) {
+                            const response = JSON.parse(xhr.responseText);
+                            $('#success-message').text(response.message).css('color', 'red').css('background-color', '#f8d7da').css('border-color', '#f5c6cb').show();
+                            setTimeout(() => $('#success-message').hide(), 10000); // Increased to 10 seconds
+                        }
+                    });
+                });
+            });
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+    <script src="{% static 'jobapplication/js/script.js' %}"></script>
+</body>
+</html>

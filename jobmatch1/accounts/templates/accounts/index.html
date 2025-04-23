@@ -1,0 +1,153 @@
+{% load static %}
+{% load user_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch - Home</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style2.css' %}">
+</head>
+<body>
+    <div class="home_page">
+        <section id="hero_section">
+            <header>
+                <h1><span>job</span>match</h1>
+                <ul>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'jobapp_page' %}">jobs</a></li>
+                    {% endif %}
+                    <li><a href="#">about us</a></li>
+                    <li><a href="#">contact us</a></li>
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="POST" onsubmit="clearTokens()">
+                        {% csrf_token %}
+                        <button type="submit" class ="logout_button"><li>log out</li></button>
+                    </form>
+                    {% else %}
+                    <li><a href="{% url 'login_page' %}">login</a></li>
+                    <li><a href="{% url 'signup_page' %}">sign up</a></li>
+                    {% endif %}
+                </ul>
+            </header>
+
+            <div class="container">
+                <div class="content">
+                    <h5>find your <span>dream job <br></span>with your interest <br> and skills </h5>
+                    <button>find your dream job</button>
+                </div>
+                <div class="img">
+                    <img src="{% static 'accounts/images/bck.jpg' %}" alt="job img">
+                </div>
+            </div>
+        </section>
+
+        <section id="offers">
+            <div class="offers_container">
+                {% if user.is_authenticated %}
+                    {% if show_complete_profile_button %}
+                        <div class="offer">
+                            <div class="content">
+                                <h3>Complete Your Profile!</h3>
+                                <p>Fill in more information about yourself to access all features.</p>
+                                <a href="{% url 'complete_profile' %}"><button>Complete Profile</button></a>
+                            </div>
+                            <img src="{% static 'accounts/images/offer1.jpg' %}" alt="complete profile offer">
+                        </div>
+                    {% else %}
+                        {% if request.user.profile.role == 'employer' %}
+                            <div class="offer">
+                                <div class="content">
+                                    <h3>Post Jobs!</h3>
+                                    <p>Find professionals from all around the world and across all skills.</p>
+                                    <a href="{% url 'job_posting' %}"><button>Post Job</button></a>
+                                </div>
+                                <img src="{% static 'accounts/images/offer1.jpg' %}" alt="employer offer">
+                            </div>
+                        {% else %}
+                            <div class="offer">
+                                <div class="content">
+                                    <h3>Start Applying Now!</h3>
+                                    <p>Connect with global opportunities tailored to your skills and interests.</p>
+                                    <a href="{% url 'jobapp_page' %}"><button>Apply For A Job</button></a>
+                                </div>
+                                <img src="{% static 'accounts/images/offer2.jpg' %}" alt="jobseeker offer">
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <div class="offer">
+                        <div class="content">
+                            <h3>Sign Up!</h3>
+                            <p>Sign Up To See All The Features</p>
+                            <a href="{% url 'signup_page' %}"><button>Sign Up</button></a>
+                        </div>
+                        <img src="{% static 'accounts/images/offer2.jpg' %}" alt="signup offer">
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section id="numbers">
+            <div class="box_number">
+                <h5 class="num" data-val="3000">000.00+</h5>
+                <p>Jobs Posted</p>
+            </div>
+            <div class="box_number">
+                <h5 class="num" data-val="2000">000.00+</h5>
+                <p>Companies Hiring</p>
+            </div>
+            <div class="box_number">
+                <h5 class="num" data-val="1000">000.00+</h5>
+                <p>Applicants Matched</p>
+            </div>
+            <div class="box_number">
+                <h5 class="num" data-val="350">000.00+</h5>
+                <p>Remote Jobs</p>
+            </div>
+        </section>
+
+        <section id="testeminol">
+        </section>
+
+        <footer>
+            <div class="list">
+                <h1><span>Job</span>match</h1>
+                <h6>find your <span>dream job <br></span>with your interest <br> and skills </h6>
+            </div>
+            <div class="list">
+                <h5>About</h5>
+                <ul>
+                    <li>Our Story</li>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>Press</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h5>Resources</h5>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Community</li>
+                    <li>API Access</li>
+                    <li>Guides</li>
+                </ul>
+            </div>
+            <div class="list">
+                <h5><span>Job</span>match</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. , in aut assumenda est rem temporibus mollitia!</p>
+                {% if user.is_authenticated %}
+                {% else %}
+                <div class="buton">
+                    <a href="{% url 'signup_page' %}"><button>sign up</button></a>
+                    <input type="text" name="" id="" placeholder="enter your email">
+                </div>
+                {% endif %}
+            </div>
+        </footer>
+    </div>
+
+    <script src="{% static 'accounts/js/script2.js' %}"></script>
+</body>
+</html>

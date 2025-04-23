@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>job post page</title>
+    <link rel="stylesheet" href="{% static 'jobposting/css/style.css' %}" />
+    <script src="https://kit.fontawesome.com/122c77fce3.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="jobpost_wrapper">
+      <header>
+        <nav>
+          <div class="logo">
+            <a href={% url 'home'%}><h1><span>job</span>match</h1></a>
+          </div>
+          <ul id="nav_list">
+            <a href="{% url 'home' %}"><li>home</li></a>
+            <a href="{% url 'jobapp_page' %}"><li>jobs</li></a>
+            <a href="aboutus.html"><li>about us</li></a>
+            <a href="aboutus.html"><li>contact us</li></a>
+            {% if user.is_authenticated %}
+            {% else %}
+            <a href="{% url 'signup_page' %}"><button class="signup_button">sign up</button></a>
+            <a href="{% url 'login_page' %}"><button class="signup_button" id="log_button">log in</button></a>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <div class="profile_icon">
+                <i class="fa-solid fa-circle-user" id="profile_icon"></i>
+            </div>
+            {% endif %}
+          </ul>
+        </nav>
+      </header>
+
+      <div class="contents">
+        <form id="job-posting-form" action="{% url 'job_posting' %}" method="POST">
+          {% csrf_token %}
+          <div class="text_field">
+            <div class="input-container">
+              <label for="title_input" class="input_text">job title</label>
+              <input type="text" placeholder="" required id="title_input" name="title" />
+            </div>
+          </div>
+          <span id="title_error" class="error"></span>
+
+          <div class="text_field">
+            <div class="input-container">
+              <label for="domain_input" class="input_text">domain</label>
+              <input type="text" placeholder="" required id="domain_input" name="domain" />
+            </div>
+          </div>
+          <span id="domain_error" class="error"></span>
+
+          <div class="text_field">
+            <div class="input-container">
+              <label for="location_input" class="input_text">location</label>
+              <input type="text" placeholder="" required id="location_input" name="location" />
+            </div>
+          </div>
+          <span id="location_error" class="error"></span>
+
+          <div class="text_field">
+            <div class="input-container">
+              <label for="salary_input" class="input_text">salary</label>
+              <input type="text" placeholder="" required id="salary_input" name="salary" />
+            </div>
+          </div>
+          <span id="salary_error" class="error"></span>
+
+          <div class="text_field">
+            <div class="input-container">
+              <label for="period_input" class="input_text">period</label>
+              <input type="text" placeholder="" required id="period_input" name="period" />
+            </div>
+          </div>
+          <span id="period_error" class="error"></span>
+
+          <div class="text_field">
+            <div class="input-container">
+              <label for="Requeriment_input" class="input_text">Requirement</label>
+              <input type="text" placeholder="" required id="Requeriment_input" name="requirements" />
+            </div>
+          </div>
+          <span id="req_error" class="error"></span>
+
+          <div class="save_btn">
+            <button type="submit" id="save_info_btn">save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <div class="list">
+          <h1><span>job</span>match</h1>
+          <h6>find your <span>dream job <br></span>with your interest <br> and skills </h5>
+      </div>
+      <div class="list">
+          <h5>about</h5>
+          <ul>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+          </ul>
+      </div>
+      <div class="list">
+          <h5>about</h5>
+          <ul>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+              <li>sdfsdf</li>
+          </ul>
+      </div>
+      <div class="list">
+          <h5><span>job</span>match</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. , in aut assumenda est rem temporibus mollitia!</p>
+          {% if user.is_authenticated%}
+                {% else %}
+                <div class="buton">
+                    <a href="{% url 'signup_page' %}"><button>sign up</button></a>
+                    <input type="text" name="" id="" placeholder="enter your email">
+                </div>
+                {% endif %}
+      </div>
+    </footer>
+    <script src="{% static 'jobposting/js/jobpost.js' %}"></script>
+  </body>
+</html>

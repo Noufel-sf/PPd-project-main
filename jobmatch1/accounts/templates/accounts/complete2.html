@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Complete Your Profile - JobMatch</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/complete2.css' %}" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.4.2/css/all.css" />
+</head>
+<body>
+    <div class="container">
+        {% comment %} <header>
+            <div class="logo">
+                <h1><span class="job">Job</span><span class="match">Match</span></h1>
+            </div>
+            <button id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="nav-menu">
+                <a href="{% url 'home' %}" id="home-link">Home</a>
+                <a href="{% url 'jobapp_page' %}">Jobs</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
+                <form action="{% url 'logout' %}" method="POST" onsubmit="clearTokens()" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Log Out</button>
+                </form>
+            </nav>
+        </header> {% endcomment %}
+
+        <main>
+            <h2>Career Overview</h2>
+            <form id="completeprofile" method="POST" action="{% url 'complete_profile_2' %}">
+                {% csrf_token %}
+                <div id="experience-section">
+                    <p>Professional Experience Level</p>
+                    <select name="experience" id="experience" required>
+                        <option value="" hidden>Choose A Level</option>
+                        <option>Entry-Level</option>
+                        <option>Mid-Level</option>
+                        <option>Expert-Level</option>
+                    </select>
+                </div>
+
+                <div id="skills-section">
+                    <p>Skills</p>
+                    <input type="text" name="skills" id="skills" required placeholder="e.g. Communication, Teamwork ..." />
+                    <p id="skills-error" style="color: red; font-size: 14px; display: none;"></p>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="back-btn">Back</button>
+                    <button type="submit">Next</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="{% static 'accounts/js/complete2.js' %}"></script>
+</body>
+</html>
